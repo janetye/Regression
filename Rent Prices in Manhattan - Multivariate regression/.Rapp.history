@@ -1,0 +1,252 @@
+d
+d=read.table(file.choose())
+names(d)<-c("name","testscore","grade")
+d.lm<-lm(testscore~grade,data=d)
+summary(d.lm)
+attach(d)
+testscore=d$testscore
+grade=d$grade
+name=d$name
+testscore.lm=lm(testscore~grade)
+nd=data.frame(grade=77)
+predict(testscore.lm,nd,interval="predict")
+detach(d)
+conf<-predict(d.lm,interval="confidence")
+pred<-predict(d.lm,interval="prediction")
+nd<-data.frame(grade=77)
+conf2<-predict(d.lm, interval="confidence",newdata=nd)
+pred2<-predict(d.lm,interval="prediction",newdata=nd)
+plot(testscore~grade,data=d,ylim=c(-5,12),xlim=c(0,8))
+abline(d.lm)
+matlines(d$grade,conf[,c("lwr","upr")],col=2,lty=1,type-"b",pch="+")
+matlines(d$grade,conf[,c("lwr","upr")],col=2,lty=1,type="b",pch="+")
+matliens(d$grade,pred[,c("lwr","upr")],col=2,lty=2,type="b",pch=1)
+> matlines(d$grade,pred[,c("lwr","upr")],col=2,lty=2,type="b",pch=1)
+matlines(d$grade,pred[,c("lwr","upr")],col=2,lty=2,type="b",pch=1)
+plot(testscore~grade,data=d,ylim=c(-5,12),xlim=c(0,8))
+testscore
+plot(testscore~grade, data=d.lm)
+plot(testscore~grade)
+matlines(d$grade,conf[,c("lwr","upr")],col=2,lty=1,type="b",pch="+")
+matlines(d$grade,pred[,c("lwr","upr")],col=2,lty=2,type="b",pch=1)
+nd
+matlines(nd,conf[,c("lwr","upr")],col=2,lty=1,type="b",pch="+")
+simple.lm(grade,testscore)
+lm.result=simple.lm(grade,testscore)
+predict(d)
+d
+predict(d.lm)
+predict(d.lm,interval="confidence")
+lines(grade,a[,2],lty=2)
+a<-predict(d.lm, interval="confidence")
+lines(grade,a[,2],lty=2)
+plot(grade,testscore)
+lines(grade,a[,2],lty=2)
+lines(grade,a[,3],lty=2)
+lines(77,a[,3],lty=2)
+d
+d<-read.table(file.choose())
+names(d)<-c("name","testscore","grade")
+lm1<-lm(testscore~grade, data=d)
+conf<-predict(lm1, interval="confidence")
+pred<-predict(lm1,interval="prediction")
+nd<-data.frame(x=seq(77))
+nd
+nd<-data.frame(x=77)
+nd
+conf2<-predict(lm1,interval="confidence", newdata=nd)
+grade=d$grade
+testscore=d$testscore
+conf2<-predict(lm1, interval="confidence",newdata=nd)
+conf<-predict(lm1, interval="confidence")
+pred<-predict(lm1,interval="prediction")
+conf2<-predict(lm1,interval="confidence", newdata=nd)
+pred2<-predict(lm1,interval="prediction",newdata=nd)
+lm1
+d
+lm1<-lm(testscore~grade,data=d)
+conf<-predict(lm1,interval="confidence")
+pred<-predict(lm1,interval="prediction")
+d <- data.frame(x=c(1,4,5,7),#
+                y=c(0.8,4.2,4.7,8))
+lm1 <- lm(y~x,data=d)
+p_conf1 <- predict(lm1,interval="confidence")
+p_pred1 <- predict(lm1,interval="prediction")
+nd <- data.frame(x=seq(0,8,length=51))
+p_conf2 <- predict(lm1,interval="confidence",newdata=nd)
+p_pred2 <- predict(lm1,interval="prediction",newdata=nd)
+plot(y~x,data=d,ylim=c(-5,12),xlim=c(0,8))
+abline(lm1)
+matlines(d$x,p_conf1[,c("lwr","upr")],col=2,lty=1,type="b",pch="+")
+matlines(d$x,p_pred1[,c("lwr","upr")],col=2,lty=2,type="b",pch=1)
+matlines(nd$x,p_conf2[,c("lwr","upr")],col=4,lty=1,type="b",pch="+")
+matlines(nd$x,p_pred2[,c("lwr","upr")],col=4,lty=2,type="b",pch=1)
+nd <- data.frame(x=seq(0,8,length=51))
+p_conf2 <- predict(lm1,interval="confidence",newdata=nd)
+lm1 <- lm(y~x,data=d)
+d <- data.frame(x=c(1,4,5,7),#
++                 y=c(0.8,4.2,4.7,8))
+d <- data.frame(x=c(1,4,5,7),y=c(0.8,4.2,4.7,8))
+lm1 <- lm(y~x,data=d)
+p_conf1 <- predict(lm1,interval="confidence")
+p_pred1 <- predict(lm1,interval="prediction")
+nd <- data.frame(x=seq(0,8,length=51))
+p_conf2 <- predict(lm1,interval="confidence",newdata=nd)
+p_pred2 <- predict(lm1,interval="prediction",newdata=nd)
+plot(y~x,data=d,ylim=c(-5,12),xlim=c(0,8))
+abline(lm1)
+matlines(d$x,p_conf1[,c("lwr","upr")],col=2,lty=1,type="b",pch="+")
+d<-data.frame(file.choose())
+names(d)<-c("name","testscore","grade")
+plot(testscore~grade)
+testscore=d$testscore
+grade=d$grade
+plot(testscore~grade)
+testscore
+testscore=d$destscore
+testscore
+d<-data.frame(file.choose())
+names(d)<-c("name","testscore","grade")
+d
+d=read.table(file.choose())
+names(d)<-c("name","testscore","grade")
+plot(testscore~grade)
+testscore=d$testscore
+grade=d$grade
+plot(testscore~grade)
+lm1<-lm(testscore~grade,data=d)
+p_conf1<-predict(lm1,interval="confidence")
+p_pred1<-predict(lm1,interval="prediction")
+nd<-data.frame(x=77)
+p_conf2<-predict(lm1,interval="confidence",newdata=nd)
+nd<-data.fram(x=seq(0,100, length=38))
+nd<-data.frame(x=seq(0,100,length=38))
+p_conf2<-predict(lm1, interval="confidence",newdata=nd)
+p_pred2<-predict(lm1,interval="prediction",newdata=nd)
+plot(testscore~grade)
+abline(lm1)
+matlines(grade,p_conf1[,c("lwr","upr")],col=2,lty=1,type="b",pch="+")
+matlines(grade,p_pred1[,c("lwr","upr")],col=2,lty=2,type="b",pch=1)
+plot(testscore~grade,xlab="In-Class Grade",ylab="Intelligence")
+abline(lm1)
+matlines(grade,p_conf1[,c("lwr","upr")],col=2,lty=1,type="b",pch="+")
+matlines(grade,p_cred1[,c("lwr","upr")],col=2,lty=2,type="b",pch=1)
+matlines(grade,p_pred1[,c("lwr","upr")],col=2,lty=2,type="b",pch=1)
+d=read.table(file.choose())
+summary(d)
+d
+names(d)<-c("name","testscore","grade")
+testscore=d$testscore
+summary(d)
+d=read.table{file.choose()}
+d=read.table(file.choose())
+d
+names(d)<-("name","intelligence","grade")
+name(d)<-c("name","intelligence","grade")
+names(d)<-("name","intelligence","grade")
+names(d)<-c("name","intelligence","grade")
+d
+d=read.table(file.choose())
+names(d)<-c("name","intelligence","grade")
+intelligence=d$intelligence
+grade=d$grade
+plot(intelligence~grade)
+d
+summary(d)
+abline(lm(intelligence~grade,data=d))
+name=d$name
+text(grade,intelligence,labels=name,cex=0.7,pos=3)
+d.lm<-lm(intelligence~grade,data=d)
+summary(d.lm)
+rm()
+ls()
+apt<-read.table(file.choose())
+apt = read.table(file.choose())
+apt<-read.table(file.choose)
+apt<-read.table(file.choose())
+getwd()
+setwd("/Users/janetyee2008/Desktop/Reg")
+getwd()
+setwd("~/UB Regression 3")
+setwd("~/Documents/UB Regression 3")
+apt<-read.table(file.choose())
+getwd()
+setwd(~Documents/UB Regression 3/HW3)
+setwd("~/Documents/UB Regression 3/HW3")
+apt<-read.table(file.choose())
+getwd()
+apt<-read.table(file.choose())
+attach(apt)
+summary(apt)
+apt<-read.table(file.choose())
+names(apt)<-c("add","rent","bed","bath","crime","door")
+attach(apt)
+summary(apt)
+names(apt)<-c("add","rent","bed","bath","crime","sqft","door")
+attach(apt)
+summary(apt)
+summary(rent)
+apt
+apt<-read.table(file.choose())
+names(apt)<-c("add","rent","bed","bath","crime","sqft","door")
+attach(apt)
+summary(apt)
+plot(rent~bed)
+plot(bed,rent,xlab="Number of Bedrooms",ylab="Rent")
+plot(bath,rent,xlab="Number of Bathrooms",ylab=)
+plot(bath,rent,xlab="Number of Bathrooms",ylab="Rent")
+plot(crime,rent,xlab="Crime Rate",ylab="Rent")
+plot(sqft,rent,xlab="Square Feet", ylab="Rent")
+plot(door,rent,xlab="Doorman",ylab="Rent")
+apt1<-lm(rent~bed+bath+sqft+crime+door)
+summary(apt1)
+vif(apt1)
+library(car)
+library(help)
+help(library)
+library(car)
+library(package)
+library(vif)
+library()
+library(vif)
+library(car)
+vif(apt1)
+ls()
+save(file="~/Documents/UB Regression 3/HW3/apt.RData")
+getwd()
+save(apt,file="apt.rda")
+load("/Users/janetyee2008/Documents/UB Regression 3/HW3/apt.RData")
+ls()
+apt
+load("/Users/janetyee2008/Documents/UB Regression 3/HW3/apt.rda")
+apt
+apt1
+apt1<-lm(rent~bed+bath+crime+sqft+door)
+rent
+names(apt)<-c(rent,bed,bath,crime,sqft,door)
+ls()
+ls()
+rent=apt.rent
+apt
+apt1
+rent
+rent=apt.rent
+rent=rent.apt
+apt=read.table(file.choose())
+names(apt)<-c(rent,bed,bath,crime,sqft,door)
+names(apt)<-c("rent","bed","bath","crime","sqft","door")
+attach(apt)
+apt1<-lm(rent~bed+bath+crime+sqft+door)
+rent
+names(apt)<-c("add","rent","bed","bath","crime","sqft","door")
+apt1<-lm(rent~bed+bath+crime+sqft+door)
+add
+names(apt)<-c("add","rent","bed","bath","crime","sqft","door")
+add
+rent
+remove(rent)
+remove("rent")
+rent=remove()
+rent
+names(apt)<-c("add","rent","bed","bath","crime","sqft","door")
+add

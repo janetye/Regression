@@ -1,0 +1,634 @@
+
+R version 3.0.2 (2013-09-25) -- "Frisbee Sailing"
+Copyright (C) 2013 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin10.8.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.62 (6558) x86_64-apple-darwin10.8.0]
+
+[History restored from /Users/janetyee2008/Documents/UB Regression 3/.Rapp.history]
+
+> getwd()
+[1] "/Users/janetyee2008/Documents/UB Regression 3"
+> load("/Users/janetyee2008/Documents/UB Regression 3/HW3/apt.rda")
+> load("/Users/janetyee2008/Documents/UB Regression 3/HW3/apt.RData")
+> ls()
+[1] "apt"
+> summary(apt)
+                  add           rent            bed             bath      
+ 101E116            :  1   Min.   : 1295   Min.   :0.000   Min.   :1.000  
+ 101WestEndAve      :  1   1st Qu.: 2888   1st Qu.:1.000   1st Qu.:1.000  
+ 104E129            :  1   Median : 3750   Median :1.000   Median :1.000  
+ 105ArdenSt         :  1   Mean   : 5582   Mean   :1.531   Mean   :1.409  
+ 105W29             :  1   3rd Qu.: 5050   3rd Qu.:2.000   3rd Qu.:1.750  
+ 106CentralParkSouth:  1   Max.   :78000   Max.   :6.000   Max.   :6.000  
+ (Other)            :153                                                  
+     crime             sqft           door       
+ Min.   :0.5130   Min.   : 400   Min.   :0.0000  
+ 1st Qu.:0.8074   1st Qu.: 692   1st Qu.:0.0000  
+ Median :1.1900   Median : 833   Median :1.0000  
+ Mean   :1.4674   Mean   :1018   Mean   :0.5535  
+ 3rd Qu.:1.5150   3rd Qu.:1100   3rd Qu.:1.0000  
+ Max.   :9.2490   Max.   :5176   Max.   :1.0000  
+                                                 
+> apt1<-lm(rent ~ bed+bath+crime+sqft+door)
+Error in eval(expr, envir, enclos) : object 'rent' not found
+> rent
+Error: object 'rent' not found
+> attach(apt)
+> apt1<-lm(rent~bed+bath+crime+sqft+door)
+> summary(apt1)
+
+Call:
+lm(formula = rent ~ bed + bath + crime + sqft + door)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-21757  -1235   -217    942  44387 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -5004.234    970.327  -5.157 7.65e-07 ***
+bed         -1331.481    657.301  -2.026   0.0445 *  
+bath         2742.180   1063.555   2.578   0.0109 *  
+crime        -129.268    275.850  -0.469   0.6400    
+sqft            7.802      1.371   5.690 6.28e-08 ***
+door         1817.799    829.561   2.191   0.0299 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 4769 on 153 degrees of freedom
+Multiple R-squared:  0.6136,	Adjusted R-squared:  0.601 
+F-statistic: 48.59 on 5 and 153 DF,  p-value: < 2.2e-16
+
+> plot(fitted)
+> save(apt1, file="apt.rda")
+> plot(fitted(apt1),residtuals(apt1),xlab="Fitted Values", ylab="Residuals")
+Error in xy.coords(x, y, xlabel, ylabel, log) : 
+  could not find function "residtuals"
+> plot(fitted(apt1),residuals(apt1),xlab="Fitted Values", ylab="Residuals")
+> plot(apt1)
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+> 
+> 
+> 
+> 
+> abline(apt1)
+Error in int_abline(a = a, b = b, h = h, v = v, untf = untf, ...) : 
+  plot.new has not been called yet
+In addition: Warning message:
+In abline(apt1) : only using the first two of 6 regression coefficients
+> apt
+                    add  rent bed bath  crime sqft door
+1          95WallStreet  5168 2.0  1.0 1.2600 1075    1
+2       10HanoverSquare  2723 0.0  1.0 1.2600  557    1
+3              99JohnSt  4600 2.0  2.0 1.2600  955    1
+4        295GreenwichSt  3250 1.0  1.0 1.2600  675    1
+5              21WestSt  2495 0.0  1.0 1.2600  525    1
+6        70BatteryPlace  4625 2.0  2.0 1.2600  910    1
+7              75WestSt  2950 1.0  1.0 1.2600  705    1
+8             380Rector  6495 2.0  2.0 1.2600 1075    1
+9        325NorthEndAve 10000 2.0  2.5 1.2600 1800    1
+10       20RiverTerrace  4995 1.0  1.0 1.2600  813    1
+11       1AMercerStreet  7850 1.0  1.5 1.2600 1400    0
+12          376Broadway  3600 2.0  1.5 1.2600  900    1
+13           151RidgeSt  3200 2.0  1.0 0.8179  550    0
+14         210Lafayette  3500 0.0  1.0 1.3860  446    1
+15             530Grand  1900 1.0  1.0 0.8179  800    0
+16         132OrchardSt  1800 1.0  1.0 0.8179  400    0
+17             67PittSt  2000 1.0  1.0 0.8179  675    0
+18      175EastBroadway  5500 3.0  2.0 0.8179 1100    1
+19      146EastBroadway  2900 2.0  1.0 0.8179  600    0
+20         47DelanceySt  2395 2.0  1.0 0.8179  675    0
+21        47DelanceySt2  3295 3.0  1.0 0.8179  950    0
+22            126Ludlow  3495 2.0  1.0 0.8179  900    0
+23            41AvenueB  3595 2.0  1.0 1.1900  700    0
+24                229E2  6250 2.0  1.0 1.1900 1226    0
+25                283E4  2200 1.0  1.0 1.1900  550    0
+26                394E8  3095 2.0  1.0 1.1900  700    0
+27                337E8  7999 2.0  1.5 1.1900 2300    0
+28           215AvenueB  4000 1.0  1.0 1.1900  712    0
+29               431E12  4950 1.0  1.0 1.1900 1600    0
+30               425E13  3995 1.0  1.5 1.1900  700    1
+31               224E11  3295 1.0  1.0 1.1900  800    0
+32            16StMarks  2350 1.0  1.0 1.1900  659    0
+33             812ndAve  4700 3.0  1.0 1.1900  700    0
+34                218E5  2995 1.5  1.0 1.1900  700    0
+35               511E20  5319 2.0  2.0 1.5590 1211    0
+36         8PeterCooper  3516 1.0  1.0 1.5590  944    0
+37            3901stAve  5814 2.0  2.0 1.5590 1211    0
+38            3052ndAve  4500 1.0  1.0 1.5590  980    1
+39               205E14  2875 1.0  1.0 1.5590  725    0
+40            1233rdAve  5000 1.0  1.0 1.5590  649    1
+41            2255thAve  8200 2.0  2.0 1.5590 1280    1
+42               105W29  6290 1.0  1.0 1.5590  747    1
+43                55W25  3900 0.0  1.0 1.5590  530    1
+44                55W26  4207 1.0  1.0 1.5590  616    1
+45            7776thAve  4195 1.0  1.0 1.5590  704    1
+46            8006thAve  3805 0.0  1.0 1.5590  835    1
+47               315W30  2180 1.0  1.0 1.5150  650    0
+48               349W30  6400 4.0  2.5 1.5150 1400    0
+49               505W37  5225 2.0  2.0 1.5150 1079    1
+50               350W42  4300 1.0  1.0 1.5150  885    1
+51              350W422  3850 1.0  1.0 1.5150  818    1
+52               555W23  6995 2.0  2.0 1.5150 1100    1
+53               405W23  3500 0.0  1.0 1.5150  600    1
+54               452W23  2400 1.0  1.0 1.5150  500    0
+55               441W22  2900 1.0  1.0 1.5150  625    0
+56               455W20 12000 2.0  2.0 1.5150 1491    1
+57               450W17 11000 1.0  1.0 1.5150 1024    1
+58               324W15  6000 1.0  1.0 1.5150  900    0
+59               212W18 34000 2.0  2.5 1.5150 2104    1
+60               201W17  6500 2.0  2.0 1.5150 1203    1
+61             567thAve 25000 3.0  3.5 1.5150 2500    1
+62             777thAve  3000 1.0  1.0 1.5150  625    1
+63               208W23  3500 1.0  1.0 1.5150  650    1
+64               360W43  3450 1.0  1.0 9.2490  800    1
+65              127E34t  4495 2.0  1.0 9.2490 1400    1
+66               115E34  3625 1.0  1.0 9.2490  800    1
+67               139E33  2250 0.0  1.0 9.2490  500    1
+68                33W56 18000 3.0  3.5 3.1440 2023    1
+69               33W562  6995 1.0  1.5 3.1440 1055    1
+70  106CentralParkSouth  9350 2.0  2.5 3.1440 1200    0
+71               117W58  3525 2.0  1.0 3.1440  800    1
+72                57W58  6600 2.0  2.0 3.1440 1080    1
+73                58W58  6499 2.0  2.0 3.1440 1064    1
+74    1CentralParkSouth  5000 0.0  1.0 3.1440  695    1
+75               550W54  3800 1.0  1.0 3.1440  650    1
+76              550W542  3350 1.0  1.0 3.1440  550    1
+77               332W57  5100 1.0  1.0 3.1440  757    1
+78               322W57 25000 4.0  4.5 3.1440 2750    1
+79               347W57  4100 1.0  1.5 3.1440  850    1
+80               350W50  5700 2.0  2.0 3.1440 1090    1
+81               393W49  3000 1.0  1.0 3.1440  673    1
+82               348W49  2200 1.0  1.0 3.1440  600    1
+83               188E64  5200 1.0  1.5 0.6578  980    0
+84               150E65 23500 4.0  3.5 0.6578 3570    0
+85               140E63 14000 2.0  2.0 0.6578 1851    1
+86                32E76  4950 1.0  1.5 0.6578  962    0
+87               177E77  3950 1.0  1.0 0.6578 1038    0
+88               151E85 22000 3.0  3.0 0.6578 2056    0
+89               333E86  1550 0.0  1.0 0.6578  550    0
+90           16233rdAve  2950 1.0  1.0 0.6578  833    1
+91           16413rdAve  4490 2.0  2.0 0.6578 1250    1
+92               163E92  2650 2.0  1.0 0.6578  800    0
+93               408E92  3100 1.0  1.0 0.6578  725    1
+94               402E90  4195 2.0  2.0 0.6578 1300    0
+95               200E82 12249 3.0  3.0 0.6578 1617    1
+96               157E82 22000 6.0  6.0 0.6578 5176    0
+97                40E94 17500 3.0  3.0 0.6578 1830    1
+98                64E94  3500 1.0  1.0 0.6578  750    0
+99               265E66  4400 1.0  1.0 0.6578  985    1
+100              200E66  5000 1.0  1.0 0.6578  919    1
+101              225W83  3650 1.0  1.0 0.7990  780    1
+102              165W82  4000 2.0  1.0 0.7990 1000    0
+103              200W83  2999 1.0  1.0 0.7990  800    1
+104              223W80  9400 2.0  2.0 0.7990 1562    1
+105        2109Broadway  5800 1.0  1.0 0.7990 1110    1
+106              201W74  3500 1.0  1.0 0.7990  750    1
+107    180RiversideBlvd  3400 1.0  1.0 0.7990  619    1
+108    200RiversideBlvd  3350 1.0  1.0 0.7990  722    1
+109       101WestEndAve  3335 1.0  1.0 0.7990  689    1
+110     80RiversideBlvd  4999 1.0  1.0 0.7990  745    1
+111   15CentralParkWest 78000 4.0  4.5 0.7990 3831    1
+112               30W63  4395 1.0  1.0 0.7990  639    1
+113      1ColumbusPlace  4600 1.0  1.0 0.7990  776    1
+114              124W60  3450 1.0  1.0 0.7990  618    1
+115              229W60  4295 1.0  1.0 0.7990 1116    1
+116              200W60  4200 1.0  1.0 0.7990  807    1
+117  327CentralParkWest  4500 1.0  1.5 0.8172  956    1
+118               55W92  4375 2.0  2.0 0.8172 1000    0
+119      750ColumbusAve  4820 2.0  2.0 0.8172  972    1
+120      808ColumbusAve  3700 1.0  1.0 0.8172  648    1
+121       900WestEndAve  3975 2.0  1.0 0.8172 1000    1
+122   290RiversideDrive  3750 2.0  1.0 0.8172  900    0
+123             211W106  2750 1.0  1.0 0.8172  750    1
+124              210W96  9975 3.0  3.0 0.8172 1750    1
+125              247W87  1880 3.0  2.0 0.8172 1880    1
+126              204W88  2999 2.0  1.0 0.8172  700    0
+127              200W90  3150 1.0  1.5 0.8172  800    0
+128  476CentralParkWest  1999 1.0  1.0 0.8172  500    0
+129               4W104  2450 1.0  1.0 0.8172  750    0
+130              342W87  8295 3.0  2.0 0.8172 1400    0
+131              175W87  4300 2.0  1.0 0.8172 1200    1
+132     444ManhattanAve  2350 1.0  1.0 1.2950  601    1
+133             279W117  2750 2.0  1.0 1.2950  700    1
+134          21038thAve  2195 1.0  1.0 1.2950  660    0
+135              21W121  3400 3.0  1.0 1.2950 1100    0
+136     207CentralParkN  2200 1.0  1.0 1.2950  700    0
+137             301W110  3800 2.0  1.5 1.2950  905    1
+138             261W112  3700 2.0  2.0 1.2950 1061    0
+139 258SaintNicholasAve  3900 1.0  2.0 1.2950 1320    1
+140             136W123  3800 3.0  2.0 1.2950 1497    0
+141              20W120  2750 1.0  1.0 1.2950 1100    0
+142             104E129  3175 3.0  1.0 1.4340 1300    0
+143             219E120  2750 3.0  1.0 1.4340 1100    0
+144             221E120  2749 3.0  1.0 1.4340 1100    0
+145             425E114  1295 0.0  1.0 1.4340  500    0
+146             317E111  2150 1.0  1.0 0.9575  720    1
+147      1408MadisonAve  2000 1.0  1.0 0.9575  650    0
+148             101E116  2095 0.0  1.0 1.4340  650    0
+149             552W157  2250 2.0  1.0 0.9226 1200    0
+150             556W156  1350 0.0  1.0 0.9226  510    0
+151             453W152  1525 1.0  1.0 0.8074  750    0
+152    736StNicholasAve  2200 1.0  1.0 0.8074  900    0
+153       95CabriniBlvd  3500 2.0  1.0 0.8074 1400    0
+154          105ArdenSt  1350 1.0  1.0 0.8074  580    0
+155        4700Broadway  1980 2.0  2.0 0.5130 1200    0
+156       131FortGeorge  1799 2.0  1.0 0.5130  900    0
+157    121FortGeorgeAve  1440 1.0  1.0 0.5130  750    0
+158        675AcademySt  1675 1.0  1.0 0.5130  660    0
+159            53Cooper  1344 1.0  1.0 0.5130  700    0
+> apt1
+
+Call:
+lm(formula = rent ~ bed + bath + crime + sqft + door)
+
+Coefficients:
+(Intercept)          bed         bath        crime         sqft         door  
+  -5004.234    -1331.481     2742.180     -129.268        7.802     1817.799  
+
+> summary(apt1)
+
+Call:
+lm(formula = rent ~ bed + bath + crime + sqft + door)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-21757  -1235   -217    942  44387 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -5004.234    970.327  -5.157 7.65e-07 ***
+bed         -1331.481    657.301  -2.026   0.0445 *  
+bath         2742.180   1063.555   2.578   0.0109 *  
+crime        -129.268    275.850  -0.469   0.6400    
+sqft            7.802      1.371   5.690 6.28e-08 ***
+door         1817.799    829.561   2.191   0.0299 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 4769 on 153 degrees of freedom
+Multiple R-squared:  0.6136,	Adjusted R-squared:  0.601 
+F-statistic: 48.59 on 5 and 153 DF,  p-value: < 2.2e-16
+
+> library(car)
+> plot(fitted(apt1),residuals(apt1),xlab="Fitted Values",ylab="Residuals")
+> plot(apt)
+> plot(apt1)
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+> plot(fitted(apt),apt.diag$std.res,xlab="Fitted Values",ylab="Standardized Residuals")
+Error in xy.coords(x, y, xlabel, ylabel, log) : 
+  object 'apt.diag' not found
+> plot(fitted(apt),apt.diag$std.res,xlab="Fitted values",ylab="Standardized residuals")
+Error in xy.coords(x, y, xlabel, ylabel, log) : 
+  object 'apt.diag' not found
+> apt.diag<-ls.diag(lsfit(cbind(bed,bath,crime,sqft,door),rent))
+> plot(fitted(apt),apt.diag$std.res,xlab="Fitted Values",ylab="Standardized Residuals")
+Error in xy.coords(x, y, xlabel, ylabel, log) : 
+  'x' and 'y' lengths differ
+> remove(apt.diag)
+> apt.lm=lm(rent~bed+bath+crime+sqft+door, data=apt)
+> apt.stdres=rstandard(apt.lm)
+> plot(rent,apt.stdres,xlab="Fitted Values",ylab="Standardized Residuals")
+> text(apt.stdres,rent,labels=add,cex=0.7,pos=3)
+> text(rent,apt.stdres,labels=apt$add,cex=0.7,pos=3)
+> plot(rent,apt.stdres,xlab="Fitted Values",ylab="Standardized Residuals")
+> 
+> plot(apt1)
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+> text(rent,apt.stdres,labels=apt$add,cex=0.7,pos=3)
+> text(apt.stdres,rent,labels=apt$add,cex=0.7,pos=3)
+> text(rent,apt.stres,labels=apt$add,cex=0.7,pos=3)
+Error in text.default(rent, apt.stres, labels = apt$add, cex = 0.7, pos = 3) : 
+  object 'apt.stres' not found
+> A good guideline for what constitutes a large leverage value n
+> plot(rent,apt.stdres,xlab="Fitted Values",ylab="Standardized Residuals")
+> plot(apt1)
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+> 
+> identify(1:10,apt1$res,rent)
+Error in xy.coords(x, y) : 'x' and 'y' lengths differ
+> lev[lev>0.09375]
+Error: object 'lev' not found
+> names(lev)<-rent
+Error in names(lev) <- rent : object 'lev' not found
+> lev<-hat()
+> library(car)
+> lev
+Error: object 'lev' not found
+> plot(apt1)
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+> identify(predict(apt1),residuals(apt1))
+warning: no point within 0.25 inches
+warning: no point within 0.25 inches
+warning: no point within 0.25 inches
+warning: no point within 0.25 inches
+warning: no point within 0.25 inches
+warning: no point within 0.25 inches
+warning: no point within 0.25 inches
+warning: no point within 0.25 inches
+Error: graphics device closed during call to locator or identify
+> identify()
+Error in xy.coords(x, y) : argument "x" is missing, with no default
+> identify()
+Error in xy.coords(x, y) : argument "x" is missing, with no default
+> x<-runif(1)
+> identify()
+Error in xy.coords(x, y) : argument "x" is missing, with no default
+> x<-runif(0.09)
+> identify()
+Error in xy.coords(x, y) : argument "x" is missing, with no default
+> x<-runif(0.09)
+> 
+> 
+> 
+> plot(apt1)
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+> text(apt,label=rownames(add))
+> identify(rowwnames(add))
+Error in identify(rowwnames(add)) : could not find function "rowwnames"
+> rownames(add)
+NULL
+> identify(add)
+warning: no point within 0.25 inches
+> rownames
+function (x, do.NULL = TRUE, prefix = "row") 
+{
+    dn <- dimnames(x)
+    if (!is.null(dn[[1L]])) 
+        dn[[1L]]
+    else {
+        nr <- NROW(x)
+        if (do.NULL) 
+            NULL
+        else if (nr > 0L) 
+            paste0(prefix, seq_len(nr))
+        else character()
+    }
+}
+<bytecode: 0x1092c2268>
+<environment: namespace:base>
+Error: graphics device closed during call to locator or identify
+> 
+> 
+> plot(apt1)
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+> apta=read.table(file.choose())
+Error in file.choose() : file choice cancelled
+> apt2=read.table(file.choose())
+> names(apt2)=c("add","rent","bed","bath","crime","sqft","door")
+> summary(apt2)
+                  add           rent            bed       
+ 101E116            :  1   Min.   : 1295   Min.   :0.000  
+ 101WestEndAve      :  1   1st Qu.: 2844   1st Qu.:1.000  
+ 104E129            :  1   Median : 3700   Median :1.000  
+ 105ArdenSt         :  1   Mean   : 4830   Mean   :1.484  
+ 105W29             :  1   3rd Qu.: 5000   3rd Qu.:2.000  
+ 106CentralParkSouth:  1   Max.   :25000   Max.   :4.000  
+ (Other)            :150                                  
+      bath           crime             sqft             door       
+ Min.   :1.000   Min.   :0.5130   Min.   : 400.0   Min.   :0.0000  
+ 1st Qu.:1.000   1st Qu.:0.8074   1st Qu.: 685.5   1st Qu.:0.0000  
+ Median :1.000   Median :1.1900   Median : 815.5   Median :1.0000  
+ Mean   :1.353   Mean   :1.4766   Mean   : 966.8   Mean   :0.5513  
+ 3rd Qu.:1.500   3rd Qu.:1.5150   3rd Qu.:1100.0   3rd Qu.:1.0000  
+ Max.   :4.500   Max.   :9.2490   Max.   :3570.0   Max.   :1.0000  
+                                                                   
+> summary(apt2)
+                  add           rent            bed             bath           crime             sqft             door       
+ 101E116            :  1   Min.   : 1295   Min.   :0.000   Min.   :1.000   Min.   :0.5130   Min.   : 400.0   Min.   :0.0000  
+ 101WestEndAve      :  1   1st Qu.: 2844   1st Qu.:1.000   1st Qu.:1.000   1st Qu.:0.8074   1st Qu.: 685.5   1st Qu.:0.0000  
+ 104E129            :  1   Median : 3700   Median :1.000   Median :1.000   Median :1.1900   Median : 815.5   Median :1.0000  
+ 105ArdenSt         :  1   Mean   : 4830   Mean   :1.484   Mean   :1.353   Mean   :1.4766   Mean   : 966.8   Mean   :0.5513  
+ 105W29             :  1   3rd Qu.: 5000   3rd Qu.:2.000   3rd Qu.:1.500   3rd Qu.:1.5150   3rd Qu.:1100.0   3rd Qu.:1.0000  
+ 106CentralParkSouth:  1   Max.   :25000   Max.   :4.000   Max.   :4.500   Max.   :9.2490   Max.   :3570.0   Max.   :1.0000  
+ (Other)            :150                                                                                                     
+> plot(bed,rent,xlab="Number of Bedrooms",ylab="Rent")
+> plot(bath,rent,xlab="Number of Bathrooms",ylab="Rent")
+> plot(crime,rent,xlab="Crime Rate",ylab="Rent")
+> plot(sqft,rent,xlab="Square Feet",ylab="Rent")
+> text(sqft,rent,cex=0.7,pos=3)
+> apt2
+                    add  rent bed bath  crime sqft door
+1          95WallStreet  5168 2.0  1.0 1.2600 1075    1
+2       10HanoverSquare  2723 0.0  1.0 1.2600  557    1
+3              99JohnSt  4600 2.0  2.0 1.2600  955    1
+4        295GreenwichSt  3250 1.0  1.0 1.2600  675    1
+5              21WestSt  2495 0.0  1.0 1.2600  525    1
+6        70BatteryPlace  4625 2.0  2.0 1.2600  910    1
+7              75WestSt  2950 1.0  1.0 1.2600  705    1
+8             380Rector  6495 2.0  2.0 1.2600 1075    1
+9        325NorthEndAve 10000 2.0  2.5 1.2600 1800    1
+10       20RiverTerrace  4995 1.0  1.0 1.2600  813    1
+11       1AMercerStreet  7850 1.0  1.5 1.2600 1400    0
+12          376Broadway  3600 2.0  1.5 1.2600  900    1
+13           151RidgeSt  3200 2.0  1.0 0.8179  550    0
+14         210Lafayette  3500 0.0  1.0 1.3860  446    1
+15             530Grand  1900 1.0  1.0 0.8179  800    0
+16         132OrchardSt  1800 1.0  1.0 0.8179  400    0
+17             67PittSt  2000 1.0  1.0 0.8179  675    0
+18      175EastBroadway  5500 3.0  2.0 0.8179 1100    1
+19      146EastBroadway  2900 2.0  1.0 0.8179  600    0
+20         47DelanceySt  2395 2.0  1.0 0.8179  675    0
+21        47DelanceySt2  3295 3.0  1.0 0.8179  950    0
+22            126Ludlow  3495 2.0  1.0 0.8179  900    0
+23            41AvenueB  3595 2.0  1.0 1.1900  700    0
+24                229E2  6250 2.0  1.0 1.1900 1226    0
+25                283E4  2200 1.0  1.0 1.1900  550    0
+26                394E8  3095 2.0  1.0 1.1900  700    0
+27                337E8  7999 2.0  1.5 1.1900 2300    0
+28           215AvenueB  4000 1.0  1.0 1.1900  712    0
+29               431E12  4950 1.0  1.0 1.1900 1600    0
+30               425E13  3995 1.0  1.5 1.1900  700    1
+31               224E11  3295 1.0  1.0 1.1900  800    0
+32            16StMarks  2350 1.0  1.0 1.1900  659    0
+33             812ndAve  4700 3.0  1.0 1.1900  700    0
+34                218E5  2995 1.5  1.0 1.1900  700    0
+35               511E20  5319 2.0  2.0 1.5590 1211    0
+36         8PeterCooper  3516 1.0  1.0 1.5590  944    0
+37            3901stAve  5814 2.0  2.0 1.5590 1211    0
+38            3052ndAve  4500 1.0  1.0 1.5590  980    1
+39               205E14  2875 1.0  1.0 1.5590  725    0
+40            1233rdAve  5000 1.0  1.0 1.5590  649    1
+41            2255thAve  8200 2.0  2.0 1.5590 1280    1
+42               105W29  6290 1.0  1.0 1.5590  747    1
+43                55W25  3900 0.0  1.0 1.5590  530    1
+44                55W26  4207 1.0  1.0 1.5590  616    1
+45            7776thAve  4195 1.0  1.0 1.5590  704    1
+46            8006thAve  3805 0.0  1.0 1.5590  835    1
+47               315W30  2180 1.0  1.0 1.5150  650    0
+48               349W30  6400 4.0  2.5 1.5150 1400    0
+49               505W37  5225 2.0  2.0 1.5150 1079    1
+50               350W42  4300 1.0  1.0 1.5150  885    1
+51              350W422  3850 1.0  1.0 1.5150  818    1
+52               555W23  6995 2.0  2.0 1.5150 1100    1
+53               405W23  3500 0.0  1.0 1.5150  600    1
+54               452W23  2400 1.0  1.0 1.5150  500    0
+55               441W22  2900 1.0  1.0 1.5150  625    0
+56               455W20 12000 2.0  2.0 1.5150 1491    1
+57               450W17 11000 1.0  1.0 1.5150 1024    1
+58               324W15  6000 1.0  1.0 1.5150  900    0
+59               201W17  6500 2.0  2.0 1.5150 1203    1
+60             567thAve 25000 3.0  3.5 1.5150 2500    1
+61             777thAve  3000 1.0  1.0 1.5150  625    1
+62               208W23  3500 1.0  1.0 1.5150  650    1
+63               360W43  3450 1.0  1.0 9.2490  800    1
+64              127E34t  4495 2.0  1.0 9.2490 1400    1
+65               115E34  3625 1.0  1.0 9.2490  800    1
+66               139E33  2250 0.0  1.0 9.2490  500    1
+67                33W56 18000 3.0  3.5 3.1440 2023    1
+68               33W562  6995 1.0  1.5 3.1440 1055    1
+69  106CentralParkSouth  9350 2.0  2.5 3.1440 1200    0
+70               117W58  3525 2.0  1.0 3.1440  800    1
+71                57W58  6600 2.0  2.0 3.1440 1080    1
+72                58W58  6499 2.0  2.0 3.1440 1064    1
+73    1CentralParkSouth  5000 0.0  1.0 3.1440  695    1
+74               550W54  3800 1.0  1.0 3.1440  650    1
+75              550W542  3350 1.0  1.0 3.1440  550    1
+76               332W57  5100 1.0  1.0 3.1440  757    1
+77               322W57 25000 4.0  4.5 3.1440 2750    1
+78               347W57  4100 1.0  1.5 3.1440  850    1
+79               350W50  5700 2.0  2.0 3.1440 1090    1
+80               393W49  3000 1.0  1.0 3.1440  673    1
+81               348W49  2200 1.0  1.0 3.1440  600    1
+82               188E64  5200 1.0  1.5 0.6578  980    0
+83               150E65 23500 4.0  3.5 0.6578 3570    0
+84               140E63 14000 2.0  2.0 0.6578 1851    1
+85                32E76  4950 1.0  1.5 0.6578  962    0
+86               177E77  3950 1.0  1.0 0.6578 1038    0
+87               151E85 22000 3.0  3.0 0.6578 2056    0
+88               333E86  1550 0.0  1.0 0.6578  550    0
+89           16233rdAve  2950 1.0  1.0 0.6578  833    1
+90           16413rdAve  4490 2.0  2.0 0.6578 1250    1
+91               163E92  2650 2.0  1.0 0.6578  800    0
+92               408E92  3100 1.0  1.0 0.6578  725    1
+93               402E90  4195 2.0  2.0 0.6578 1300    0
+94               200E82 12249 3.0  3.0 0.6578 1617    1
+95                40E94 17500 3.0  3.0 0.6578 1830    1
+96                64E94  3500 1.0  1.0 0.6578  750    0
+97               265E66  4400 1.0  1.0 0.6578  985    1
+98               200E66  5000 1.0  1.0 0.6578  919    1
+99               225W83  3650 1.0  1.0 0.7990  780    1
+100              165W82  4000 2.0  1.0 0.7990 1000    0
+101              200W83  2999 1.0  1.0 0.7990  800    1
+102              223W80  9400 2.0  2.0 0.7990 1562    1
+103        2109Broadway  5800 1.0  1.0 0.7990 1110    1
+104              201W74  3500 1.0  1.0 0.7990  750    1
+105    180RiversideBlvd  3400 1.0  1.0 0.7990  619    1
+106    200RiversideBlvd  3350 1.0  1.0 0.7990  722    1
+107       101WestEndAve  3335 1.0  1.0 0.7990  689    1
+108     80RiversideBlvd  4999 1.0  1.0 0.7990  745    1
+109               30W63  4395 1.0  1.0 0.7990  639    1
+110      1ColumbusPlace  4600 1.0  1.0 0.7990  776    1
+111              124W60  3450 1.0  1.0 0.7990  618    1
+112              229W60  4295 1.0  1.0 0.7990 1116    1
+113              200W60  4200 1.0  1.0 0.7990  807    1
+114  327CentralParkWest  4500 1.0  1.5 0.8172  956    1
+115               55W92  4375 2.0  2.0 0.8172 1000    0
+116      750ColumbusAve  4820 2.0  2.0 0.8172  972    1
+117      808ColumbusAve  3700 1.0  1.0 0.8172  648    1
+118       900WestEndAve  3975 2.0  1.0 0.8172 1000    1
+119   290RiversideDrive  3750 2.0  1.0 0.8172  900    0
+120             211W106  2750 1.0  1.0 0.8172  750    1
+121              210W96  9975 3.0  3.0 0.8172 1750    1
+122              247W87  1880 3.0  2.0 0.8172 1880    1
+123              204W88  2999 2.0  1.0 0.8172  700    0
+124              200W90  3150 1.0  1.5 0.8172  800    0
+125  476CentralParkWest  1999 1.0  1.0 0.8172  500    0
+126               4W104  2450 1.0  1.0 0.8172  750    0
+127              342W87  8295 3.0  2.0 0.8172 1400    0
+128              175W87  4300 2.0  1.0 0.8172 1200    1
+129     444ManhattanAve  2350 1.0  1.0 1.2950  601    1
+130             279W117  2750 2.0  1.0 1.2950  700    1
+131          21038thAve  2195 1.0  1.0 1.2950  660    0
+132              21W121  3400 3.0  1.0 1.2950 1100    0
+133     207CentralParkN  2200 1.0  1.0 1.2950  700    0
+134             301W110  3800 2.0  1.5 1.2950  905    1
+135             261W112  3700 2.0  2.0 1.2950 1061    0
+136 258SaintNicholasAve  3900 1.0  2.0 1.2950 1320    1
+137             136W123  3800 3.0  2.0 1.2950 1497    0
+138              20W120  2750 1.0  1.0 1.2950 1100    0
+139             104E129  3175 3.0  1.0 1.4340 1300    0
+140             219E120  2750 3.0  1.0 1.4340 1100    0
+141             221E120  2749 3.0  1.0 1.4340 1100    0
+142             425E114  1295 0.0  1.0 1.4340  500    0
+143             317E111  2150 1.0  1.0 0.9575  720    1
+144      1408MadisonAve  2000 1.0  1.0 0.9575  650    0
+145             101E116  2095 0.0  1.0 1.4340  650    0
+146             552W157  2250 2.0  1.0 0.9226 1200    0
+147             556W156  1350 0.0  1.0 0.9226  510    0
+148             453W152  1525 1.0  1.0 0.8074  750    0
+149    736StNicholasAve  2200 1.0  1.0 0.8074  900    0
+150       95CabriniBlvd  3500 2.0  1.0 0.8074 1400    0
+151          105ArdenSt  1350 1.0  1.0 0.8074  580    0
+152        4700Broadway  1980 2.0  2.0 0.5130 1200    0
+153       131FortGeorge  1799 2.0  1.0 0.5130  900    0
+154    121FortGeorgeAve  1440 1.0  1.0 0.5130  750    0
+155        675AcademySt  1675 1.0  1.0 0.5130  660    0
+156            53Cooper  1344 1.0  1.0 0.5130  700    0
+> plot(rent~bed+bath+crime+sqft+door)
+Hit <Return> to see next plot: 
+> aptb<-lm(rent~bed+bath+crime+sqft+door)
+> summary(aptb)
+
+Call:
+lm(formula = rent ~ bed + bath + crime + sqft + door)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-21757  -1235   -217    942  44387 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -5004.234    970.327  -5.157 7.65e-07 ***
+bed         -1331.481    657.301  -2.026   0.0445 *  
+bath         2742.180   1063.555   2.578   0.0109 *  
+crime        -129.268    275.850  -0.469   0.6400    
+sqft            7.802      1.371   5.690 6.28e-08 ***
+door         1817.799    829.561   2.191   0.0299 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 4769 on 153 degrees of freedom
+Multiple R-squared:  0.6136,	Adjusted R-squared:  0.601 
+F-statistic: 48.59 on 5 and 153 DF,  p-value: < 2.2e-16
+
+> save(aptb,file="apt.rda")
+> ls()
+[1] "apt"        "apt.lm"     "apt.stdres" "apt1"       "apt2"       "aptb"       "x"         
+> 
