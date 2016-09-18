@@ -1,0 +1,668 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  16 APR 2014 18:14
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**HW4.tex
+(./HW4.tex
+LaTeX2e <2011/06/27>
+Babel <3.9f> and hyphenation patterns for 78 languages loaded.
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count87
+\Gm@cntv=\count88
+\c@Gm@tempcnt=\count89
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
+\Gm@dimlist=\toks15
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip43
+\f@ncyO@elh=\skip44
+\f@ncyO@erh=\skip45
+\f@ncyO@olh=\skip46
+\f@ncyO@orh=\skip47
+\f@ncyO@elf=\skip48
+\f@ncyO@erf=\skip49
+\f@ncyO@olf=\skip50
+\f@ncyO@orf=\skip51
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count90
+))
+\Gin@req@height=\dimen111
+\Gin@req@width=\dimen112
+)
+(/usr/local/texlive/2013/../texmf-local/tex/latex/local/amscls/amsthm.sty
+Package: amsthm 2009/07/02 v2.20.1
+\thm@style=\toks16
+\thm@bodyfont=\toks17
+\thm@headfont=\toks18
+\thm@notefont=\toks19
+\thm@headpunct=\toks20
+\thm@preskip=\skip52
+\thm@postskip=\skip53
+\thm@headsep=\skip54
+\dth@everypar=\toks21
+)
+(/usr/local/texlive/2013/../texmf-local/tex/latex/local/amsmath/amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip55
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2013/../texmf-local/tex/latex/local/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/local/texlive/2013/../texmf-local/tex/latex/local/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks22
+\ex@=\dimen113
+))
+(/usr/local/texlive/2013/../texmf-local/tex/latex/local/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen114
+)
+(/usr/local/texlive/2013/../texmf-local/tex/latex/local/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count91
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count92
+\leftroot@=\count93
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count94
+\DOTSCASE@=\count95
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen115
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count96
+\c@MaxMatrixCols=\count97
+\dotsspace@=\muskip10
+\c@parentequation=\count98
+\dspbrk@lvl=\count99
+\tag@help=\toks23
+\row@=\count100
+\column@=\count101
+\maxfields@=\count102
+\andhelp@=\toks24
+\eqnshift@=\dimen116
+\alignsep@=\dimen117
+\tagshift@=\dimen118
+\tagwidth@=\dimen119
+\totwidth@=\dimen120
+\lineht@=\dimen121
+\@envbody=\toks25
+\multlinegap=\skip56
+\multlinetaggap=\skip57
+\mathdisplay@stack=\toks26
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen122
+) (./HW4.aux)
+\openout1 = `HW4.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(36.135pt, 525.23788pt, 36.135pt)
+* v-part:(T,H,B)=(72.26999pt, 700.50687pt, 72.26999pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=525.23788pt
+* \textheight=700.50687pt
+* \oddsidemargin=-36.135pt
+* \evensidemargin=-36.135pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=50.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count103
+\scratchdimen=\dimen123
+\scratchbox=\box28
+\nofMPsegments=\count104
+\nofMParguments=\count105
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count106
+\MPscratchDim=\dimen124
+\MPnumerator=\count107
+\makeMPintoPDFobject=\count108
+\everyMPtoPDFconversion=\toks28
+) (/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+[1
+
+{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 28.
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 28.
+
+<HAI.png, id=8, 764.8575pt x 606.265pt>
+File: HAI.png Graphic file (type png)
+ <use HAI.png>
+Package pdftex.def Info: HAI.png used on input line 38.
+(pdftex.def)             Requested size: 229.45901pt x 181.8809pt.
+
+<cons.png, id=9, 772.8875pt x 609.27625pt>
+File: cons.png Graphic file (type png)
+ <use cons.png>
+Package pdftex.def Info: cons.png used on input line 39.
+(pdftex.def)             Requested size: 231.86803pt x 182.78427pt.
+
+<price.png, id=10, 763.85374pt x 606.265pt>
+File: price.png Graphic file (type png)
+ <use price.png>
+Package pdftex.def Info: price.png used on input line 40.
+(pdftex.def)             Requested size: 229.15788pt x 181.8809pt.
+
+<unrate.png, id=11, 761.84625pt x 599.23875pt>
+File: unrate.png Graphic file (type png)
+ <use unrate.png>
+Package pdftex.def Info: unrate.png used on input line 41.
+(pdftex.def)             Requested size: 228.55563pt x 179.77301pt.
+
+<mort.png, id=12, 761.84625pt x 602.25pt>
+File: mort.png Graphic file (type png)
+ <use mort.png>
+Package pdftex.def Info: mort.png used on input line 42.
+(pdftex.def)             Requested size: 228.55563pt x 180.67639pt.
+ [1] [2 <./HAI.png> <./cons.png> <./price.png> <./unrate.png> <./mort.png>]
+<reg.png, id=23, 445.665pt x 361.35pt>
+File: reg.png Graphic file (type png)
+ <use reg.png>
+Package pdftex.def Info: reg.png used on input line 57.
+(pdftex.def)             Requested size: 222.83195pt x 180.67456pt.
+
+<vif.png, id=24, 390.45876pt x 48.18pt>
+File: vif.png Graphic file (type png)
+ <use vif.png>
+Package pdftex.def Info: vif.png used on input line 58.
+(pdftex.def)             Requested size: 195.2289pt x 24.08992pt.
+
+<matrix.png, id=25, 676.5275pt x 131.49126pt>
+File: matrix.png Graphic file (type png)
+ <use matrix.png>
+Package pdftex.def Info: matrix.png used on input line 62.
+(pdftex.def)             Requested size: 338.26291pt x 65.74545pt.
+
+<best.png, id=26, 572.1375pt x 373.395pt>
+File: best.png Graphic file (type png)
+ <use best.png>
+Package pdftex.def Info: best.png used on input line 70.
+(pdftex.def)             Requested size: 286.06804pt x 186.69704pt.
+
+<r2.png, id=27, 549.05125pt x 372.39125pt>
+File: r2.png Graphic file (type png)
+ <use r2.png>
+Package pdftex.def Info: r2.png used on input line 71.
+(pdftex.def)             Requested size: 274.52495pt x 186.19516pt.
+
+<adjr2.png, id=28, 567.11874pt x 380.42125pt>
+File: adjr2.png Graphic file (type png)
+ <use adjr2.png>
+Package pdftex.def Info: adjr2.png used on input line 72.
+(pdftex.def)             Requested size: 283.55867pt x 190.21014pt.
+ [3 <./reg.png> <./vif.png> <./matrix.png>]
+LaTeX Font Info:    Try loading font information for U+msa on input line 76.
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 76.
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+<AIC.png, id=32, 422.57875pt x 194.7275pt>
+File: AIC.png Graphic file (type png)
+ <use AIC.png>
+Package pdftex.def Info: AIC.png used on input line 81.
+(pdftex.def)             Requested size: 211.28885pt x 97.3635pt.
+ [4 <./best.png> <./r2.png> <./adjr2.png>] <AICC.png, id=38, 506.89375pt x 211.
+79124pt>
+File: AICC.png Graphic file (type png)
+
+<use AICC.png>
+Package pdftex.def Info: AICC.png used on input line 85.
+(pdftex.def)             Requested size: 253.44626pt x 105.89536pt.
+File: reg.png Graphic file (type png)
+ <use reg.png>
+Package pdftex.def Info: reg.png used on input line 90.
+(pdftex.def)             Requested size: 222.83195pt x 180.67456pt.
+ [5 <./AIC.png> <./AICC.png>]
+<diag.png, id=44, 762.85pt x 648.4225pt>
+File: diag.png Graphic file (type png)
+ <use diag.png>
+Package pdftex.def Info: diag.png used on input line 108.
+(pdftex.def)             Requested size: 305.1346pt x 259.3644pt.
+
+<QQ.png, id=45, 765.86125pt x 636.3775pt>
+File: QQ.png Graphic file (type png)
+ <use QQ.png>
+Package pdftex.def Info: QQ.png used on input line 109.
+(pdftex.def)             Requested size: 306.33907pt x 254.5465pt.
+
+<time.png, id=46, 760.8425pt x 624.3325pt>
+File: time.png Graphic file (type png)
+ <use time.png>
+Package pdftex.def Info: time.png used on input line 117.
+(pdftex.def)             Requested size: 304.3316pt x 249.72858pt.
+ [6 <./diag.png> <./QQ.png>] <DW.png, id=52, 445.665pt x 91.34125pt>
+File: DW.png Graphic file (type png)
+ <use DW.png>
+Package pdftex.def Info: DW.png used on input line 121.
+(pdftex.def)             Requested size: 222.83195pt x 45.6705pt.
+
+<ACF.png, id=53, 773.89125pt x 673.51625pt>
+File: ACF.png Graphic file (type png)
+ <use ACF.png>
+Package pdftex.def Info: ACF.png used on input line 127.
+(pdftex.def)             Requested size: 309.55101pt x 269.40172pt.
+
+<ACFz.png, id=54, 544.0325pt x 99.37125pt>
+File: ACFz.png Graphic file (type png)
+ <use ACFz.png>
+Package pdftex.def Info: ACFz.png used on input line 128.
+(pdftex.def)             Requested size: 272.01558pt x 49.6855pt.
+ [7 <./time.png> <./DW.png>] <runs.png, id=58, 333.245pt x 74.2775pt>
+File: runs.png Graphic file (type png)
+ <use runs.png>
+Package pdftex.def Info: runs.png used on input line 134.
+(pdftex.def)             Requested size: 199.94853pt x 44.56683pt.
+
+<reg2.png, id=59, 477.785pt x 558.085pt>
+File: reg2.png Graphic file (type png)
+ <use reg2.png>
+Package pdftex.def Info: reg2.png used on input line 141.
+(pdftex.def)             Requested size: 238.8919pt x 279.04182pt.
+ [8 <./ACF.png> <./ACFz.png> <./runs.png>] <vif2.png, id=63, 565.11125pt x 83.3
+1125pt>
+File: vif2.png Graphic file (type png)
+ <use vif2.png>
+Package pdftex.def Info: vif2.png used on input line 142.
+(pdftex.def)             Requested size: 282.55493pt x 41.65552pt.
+
+<best2a.png, id=64, 1150.2975pt x 610.28pt>
+File: best2a.png Graphic file (type png)
+ <use best2a.png>
+Package pdftex.def Info: best2a.png used on input line 148.
+(pdftex.def)             Requested size: 575.14735pt x 305.13925pt.
+
+<best2b.png, id=65, 1201.48875pt x 126.4725pt>
+File: best2b.png Graphic file (type png)
+ <use best2b.png>
+Package pdftex.def Info: best2b.png used on input line 149.
+(pdftex.def)             Requested size: 480.58699pt x 50.58809pt.
+
+<r2a.png, id=66, 1147.28625pt x 610.28pt>
+File: r2a.png Graphic file (type png)
+ <use r2a.png>
+Package pdftex.def Info: r2a.png used on input line 150.
+(pdftex.def)             Requested size: 573.64172pt x 305.13925pt.
+
+<r2b.png, id=67, 1231.60126pt x 107.40125pt>
+File: r2b.png Graphic file (type png)
+ <use r2b.png>
+Package pdftex.def Info: r2b.png used on input line 151.
+(pdftex.def)             Requested size: 492.63177pt x 42.95973pt.
+
+<adjr2a.png, id=68, 1149.29375pt x 610.28pt>
+File: adjr2a.png Graphic file (type png)
+ <use adjr2a.png>
+Package pdftex.def Info: adjr2a.png used on input line 152.
+(pdftex.def)             Requested size: 574.64548pt x 305.13925pt.
+
+<adjr2b.png, id=69, 1233.60875pt x 108.405pt>
+File: adjr2b.png Graphic file (type png)
+ <use adjr2b.png>
+Package pdftex.def Info: adjr2b.png used on input line 153.
+(pdftex.def)             Requested size: 493.43475pt x 43.36122pt.
+
+Overfull \hbox (49.90947pt too wide) in paragraph at lines 148--154
+ [] 
+ []
+
+
+Overfull \hbox (48.40384pt too wide) in paragraph at lines 148--154
+ [] 
+ []
+
+
+Overfull \hbox (49.4076pt too wide) in paragraph at lines 148--154
+ [] 
+ []
+
+[9 <./reg2.png> <./vif2.png>] [10 <./best2a.png> <./best2b.png> <./r2a.png>]
+<AIC1.png, id=76, 348.30125pt x 162.6075pt>
+File: AIC1.png Graphic file (type png)
+ <use AIC1.png>
+Package pdftex.def Info: AIC1.png used on input line 157.
+(pdftex.def)             Requested size: 139.31802pt x 65.04184pt.
+
+<AIC2.png, id=77, 476.78125pt x 131.49126pt>
+File: AIC2.png Graphic file (type png)
+ <use AIC2.png>
+Package pdftex.def Info: AIC2.png used on input line 158.
+(pdftex.def)             Requested size: 190.7091pt x 52.59557pt.
+
+<AIC3.png, id=78, 611.28375pt x 128.48pt>
+File: AIC3.png Graphic file (type png)
+ <use AIC3.png>
+Package pdftex.def Info: AIC3.png used on input line 159.
+(pdftex.def)             Requested size: 244.50917pt x 51.39108pt.
+
+<AIC4.png, id=79, 665.48625pt x 115.43124pt>
+File: AIC4.png Graphic file (type png)
+ <use AIC4.png>
+Package pdftex.def Info: AIC4.png used on input line 160.
+(pdftex.def)             Requested size: 266.18977pt x 46.17168pt.
+ [11 <./r2b.png> <./adjr2a.png> <./adjr2b.png> <./AIC1.png> <./AIC2.png> <./AIC
+3.png>]
+<AICC2.png, id=83, 692.5875pt x 609.27625pt>
+File: AICC2.png Graphic file (type png)
+ <use AICC2.png>
+Package pdftex.def Info: AICC2.png used on input line 161.
+(pdftex.def)             Requested size: 277.03009pt x 243.70618pt.
+
+<all.png, id=84, 758.835pt x 619.31375pt>
+File: all.png Graphic file (type png)
+ <use all.png>
+Package pdftex.def Info: all.png used on input line 165.
+(pdftex.def)             Requested size: 303.52863pt x 247.72112pt.
+
+<salessales.png, id=85, 761.84625pt x 619.31375pt>
+File: salessales.png Graphic file (type png)
+ <use salessales.png>
+Package pdftex.def Info: salessales.png used on input line 170.
+(pdftex.def)             Requested size: 228.55563pt x 185.79555pt.
+
+<salescons.png, id=86, 758.835pt x 611.28375pt>
+File: salescons.png Graphic file (type png)
+ <use salescons.png>
+Package pdftex.def Info: salescons.png used on input line 171.
+(pdftex.def)             Requested size: 227.65225pt x 183.38654pt.
+
+<salesunrate.png, id=87, 764.8575pt x 605.26125pt>
+File: salesunrate.png Graphic file (type png)
+ <use salesunrate.png>
+Package pdftex.def Info: salesunrate.png used on input line 172.
+(pdftex.def)             Requested size: 229.45901pt x 181.57976pt.
+
+<salesmort.png, id=88, 762.85pt x 612.2875pt>
+File: salesmort.png Graphic file (type png)
+ <use salesmort.png>
+Package pdftex.def Info: salesmort.png used on input line 173.
+(pdftex.def)             Requested size: 228.85677pt x 183.68767pt.
+
+<salesprice.png, id=89, 761.84625pt x 611.28375pt>
+File: salesprice.png Graphic file (type png)
+ <use salesprice.png>
+Package pdftex.def Info: salesprice.png used on input line 174.
+(pdftex.def)             Requested size: 228.55563pt x 183.38654pt.
+
+<saleshai.png, id=90, 766.865pt x 618.31pt>
+File: saleshai.png Graphic file (type png)
+ <use saleshai.png>
+Package pdftex.def Info: saleshai.png used on input line 175.
+(pdftex.def)             Requested size: 230.06128pt x 185.49443pt.
+ [12 <./AIC4.png> <./AICC2.png> <./all.png>] <d3lm.png, id=95, 663.47874pt x 56
+6.115pt>
+File: d3lm.png Graphic file (type png)
+
+<use d3lm.png>
+Package pdftex.def Info: d3lm.png used on input line 183.
+(pdftex.def)             Requested size: 265.3868pt x 226.44199pt.
+ [13 <./salessales.png> <./salescons.png> <./salesunrate.png> <./salesmort.png>
+ <./salesprice.png> <./saleshai.png>]
+<d3vif.png, id=99, 648.4225pt x 79.29625pt>
+File: d3vif.png Graphic file (type png)
+ <use d3vif.png>
+Package pdftex.def Info: d3vif.png used on input line 184.
+(pdftex.def)             Requested size: 259.3644pt x 31.71793pt.
+
+<d3diag.png, id=100, 800.9925pt x 660.4675pt>
+File: d3diag.png Graphic file (type png)
+ <use d3diag.png>
+Package pdftex.def Info: d3diag.png used on input line 187.
+(pdftex.def)             Requested size: 320.39133pt x 264.18231pt.
+
+<outlier.png, id=102, 516.93124pt x 343.2825pt>
+File: outlier.png Graphic file (type png)
+ <use outlier.png>
+Package pdftex.def Info: outlier.png used on input line 192.
+(pdftex.def)             Requested size: 310.16113pt x 205.97107pt.
+ [14 <./d3lm.png> <./d3vif.png> <./d3diag.png>]
+<d3time.png, id=107, 765.86125pt x 635.37375pt>
+File: d3time.png Graphic file (type png)
+ <use d3time.png>
+Package pdftex.def Info: d3time.png used on input line 201.
+(pdftex.def)             Requested size: 229.76015pt x 190.61359pt.
+
+<d3acf.png, id=108, 765.86125pt x 662.475pt>
+File: d3acf.png Graphic file (type png)
+ <use d3acf.png>
+Package pdftex.def Info: d3acf.png used on input line 205.
+(pdftex.def)             Requested size: 229.76015pt x 198.74403pt.
+ [15 <./outlier.png> <./d3time.png>] <d3acfz.png, id=112, 627.34375pt x 46.1725
+pt>
+File: d3acfz.png Graphic file (type png)
+
+<use d3acfz.png>
+Package pdftex.def Info: d3acfz.png used on input line 206.
+(pdftex.def)             Requested size: 250.93304pt x 18.46866pt.
+ <d3runs.png, id=113, 360.34625pt x 101.37875pt>
+File: d3runs.png Graphic file (type png)
+
+<use d3runs.png>
+Package pdftex.def Info: d3runs.png used on input line 207.
+(pdftex.def)             Requested size: 144.13594pt x 40.55077pt.
+ <flm.png, id=114, 672.5125pt x 572.1375pt>
+File: flm.png Graphic file (type png)
+ <use flm.png>
+Package pdftex.def Info: flm.png used on input line 214.
+(pdftex.def)             Requested size: 269.00023pt x 228.85094pt.
+
+<fvif.png, id=115, 644.4075pt x 85.31876pt>
+File: fvif.png Graphic file (type png)
+ <use fvif.png>
+Package pdftex.def Info: fvif.png used on input line 215.
+(pdftex.def)             Requested size: 322.20296pt x 42.65926pt.
+
+<fqq.png, id=116, 760.8425pt x 655.44875pt>
+File: fqq.png Graphic file (type png)
+ <use fqq.png>
+Package pdftex.def Info: fqq.png used on input line 216.
+(pdftex.def)             Requested size: 304.3316pt x 262.17485pt.
+
+<fsd.png, id=117, 776.9025pt x 670.505pt>
+File: fsd.png Graphic file (type png)
+ <use fsd.png>
+Package pdftex.def Info: fsd.png used on input line 217.
+(pdftex.def)             Requested size: 310.7555pt x 268.19725pt.
+ [16 <./d3acf.png> <./d3acfz.png> <./d3runs.png> <./flm.png> <./fvif.png>] [17 
+<./fqq.png> <./fsd.png>] [18] (./HW4.aux) ) 
+Here is how much of TeX's memory you used:
+ 3332 strings out of 493315
+ 44695 string characters out of 6137904
+ 108229 words of memory out of 5000000
+ 6684 multiletter control sequences out of 15000+600000
+ 10748 words of font info for 40 fonts, out of 8000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 38i,10n,43p,848b,200s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2013/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2013/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2013/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2013/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2013/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2013/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2013/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2013/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmti10.pfb>
+Output written on HW4.pdf (19 pages, 1839367 bytes).
+PDF statistics:
+ 168 PDF objects out of 1000 (max. 8388607)
+ 81 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 261 words of extra memory for PDF output out of 10000 (max. 10000000)
+

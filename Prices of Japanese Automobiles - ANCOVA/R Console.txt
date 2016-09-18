@@ -1,0 +1,584 @@
+
+R version 3.0.2 (2013-09-25) -- "Frisbee Sailing"
+Copyright (C) 2013 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin10.8.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.62 (6558) x86_64-apple-darwin10.8.0]
+
+[Workspace restored from /Users/janetyee2008/Documents/UB Regression 3/.RData]
+[History restored from /Users/janetyee2008/Documents/UB Regression 3/.Rapp.history]
+
+> setwd("~/Documents/UB Regression 3/HW5")
+> d=read.table(file.choose9)
+Error in read.table(file.choose9) : object 'file.choose9' not found
+> d=read.table(file.choose())
+Error in file.choose() : file choice cancelled
+> d=read.table(file.choose())
+> names(d)<-c("Car","Price","Brand","Type","MPG")
+> summary(d)
+          Car         Price          Brand       Type         MPG       
+ 4Runner    : 1   Min.   :11900   Honda :11   Car  :17   Min.   :15.50  
+ Accord     : 1   1st Qu.:19170   Nissan:16   SUV  :19   1st Qu.:21.00  
+ AccordCoupe: 1   Median :23625   Toyota:14   Truck: 5   Median :26.50  
+ Altima     : 1   Mean   :26056                          Mean   :25.73  
+ AltimaCoupe: 1   3rd Qu.:29215                          3rd Qu.:30.50  
+ Armada     : 1   Max.   :79605                          Max.   :37.50  
+ (Other)    :35                                                         
+> attach(d)
+> boxplot(Price)
+> hist(Price)
+> hist(Brand)
+Error in hist.default(Brand) : 'x' must be numeric
+> hist(MPG)
+> price
+Error: object 'price' not found
+> Price
+ [1] 14430 16800 22425 31340 26920 18125 26200 23550 27950 29215 27680 32820 44095 79605 21680
+[16] 23625 18390 18190 27380 22945 19995 15425 28825 29670 29575 19170 22790 20040 28530 41995
+[31] 23390 29110 37590 17990 29360 13990 11900 16900 22170 25230 31290
+> logPrice=log(Price)
+> logPrice
+ [1]  9.577065  9.729134 10.017932 10.352651 10.200625  9.805047 10.173515 10.066881 10.238172
+[10] 10.282438 10.228465 10.398793 10.694102 11.284832  9.984145 10.070061  9.819562  9.808627
+[19] 10.217568 10.040855  9.903238  9.643745 10.268998 10.297892 10.294685  9.861102 10.034077
+[28]  9.905486 10.258711 10.645306 10.060064 10.278837 10.534493  9.797571 10.287388  9.546098
+[37]  9.384294  9.735069 10.006495 10.135789 10.351054
+> remove(logPrice)
+> logPrice=log10(Price)
+> logPrice
+ [1] 4.159266 4.225309 4.350732 4.496099 4.430075 4.258278 4.418301 4.371991 4.446382 4.465606
+[11] 4.442166 4.516139 4.644389 4.900940 4.336059 4.373372 4.264582 4.259833 4.437433 4.360688
+[21] 4.300921 4.188225 4.459769 4.472318 4.470925 4.282622 4.357744 4.301898 4.455302 4.623198
+[31] 4.369030 4.464042 4.575072 4.255031 4.467756 4.145818 4.075547 4.227887 4.345766 4.401917
+[41] 4.495406
+> hist(logPrice)
+> boxplot(split(logPrice,Brand))
+> boxplot(split(logPrice,Type))
+> plot(MPG,logPrice)
+> library(car)
+> Anova(brea)
+> 
+> d1<-aov(logPrice~Brand+Type+MPG)
+> coef(d1)
+(Intercept) BrandNissan BrandToyota     TypeSUV   TypeTruck         MPG 
+ 5.03809289 -0.05170044 -0.01129569 -0.02404223 -0.20026985 -0.02296159 
+> summary(d1)
+            Df Sum Sq Mean Sq F value   Pr(>F)    
+Brand        2 0.0534  0.0267   3.489   0.0415 *  
+Type         2 0.2535  0.1268  16.564 8.67e-06 ***
+MPG          1 0.3388  0.3388  44.276 1.07e-07 ***
+Residuals   35 0.2678  0.0077                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> Anova(d1,type=3)
+Anova Table (Type III tests)
+
+Response: logPrice
+             Sum Sq Df   F value    Pr(>F)    
+(Intercept) 14.3434  1 1874.4082 < 2.2e-16 ***
+Brand        0.0207  2    1.3501  0.272384    
+Type         0.1187  2    7.7569  0.001627 ** 
+MPG          0.3388  1   44.2758 1.073e-07 ***
+Residuals    0.2678 35                        
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> remove(d1)
+> d1
+Error: object 'd1' not found
+> d1<-aov(logPrice~Type+MPG)
+> coef(d1)
+(Intercept)     TypeSUV   TypeTruck         MPG 
+ 5.00982026 -0.02652942 -0.20129072 -0.02274719 
+> library(car)
+> Anova(d1,type=3)
+Anova Table (Type III tests)
+
+Response: logPrice
+             Sum Sq Df   F value    Pr(>F)    
+(Intercept) 17.0458  1 2186.1879 < 2.2e-16 ***
+Type         0.1181  2    7.5715  0.001752 ** 
+MPG          0.3578  1   45.8896 5.678e-08 ***
+Residuals    0.2885 37                        
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> summary(lm(logPrice~Type+MPG))
+
+Call:
+lm(formula = logPrice ~ Type + MPG)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.182064 -0.044264  0.003937  0.039539  0.270231 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  5.009820   0.107147  46.757  < 2e-16 ***
+TypeSUV     -0.026529   0.041594  -0.638  0.52752    
+TypeTruck   -0.201291   0.060718  -3.315  0.00206 ** 
+MPG         -0.022747   0.003358  -6.774 5.68e-08 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.0883 on 37 degrees of freedom
+Multiple R-squared:  0.6842,	Adjusted R-squared:  0.6586 
+F-statistic: 26.72 on 3 and 37 DF,  p-value: 2.272e-09
+
+> model.tables(d1,cterms="Type")
+Tables of effects
+
+ Type 
+         Car      SUV   Truck
+    -0.08902  0.08323 -0.0136
+rep 17.00000 19.00000  5.0000
+> model.tables(d1,cterms="Type")$tables$Type+coef(d1)[1]+coef(d1)[2]*mean(MPG)
+Type
+     Car      SUV    Truck 
+4.238155 4.410399 4.313577 
+> sapply(split(logPrice,Type),summary)
+          Car   SUV Truck
+Min.    4.076 4.283 4.255
+1st Qu. 4.225 4.371 4.258
+Median  4.301 4.455 4.418
+Mean    4.299 4.471 4.374
+3rd Qu. 4.373 4.494 4.468
+Max.    4.496 4.901 4.471
+> library(multcomp)
+Error in library(multcomp) : there is no package called ‘multcomp’
+> installpackage(multcomp)
+Error: could not find function "installpackage"
+> package(multcomp)
+Error: could not find function "package"
+> install.packages("multcomp")
+Installing package into ‘/Users/janetyee2008/Library/R/3.0/library’
+(as ‘lib’ is unspecified)
+--- Please select a CRAN mirror for use in this session ---
+also installing the dependencies ‘mvtnorm’, ‘TH.data’, ‘sandwich’
+
+trying URL 'http://cran.mtu.edu/bin/macosx/contrib/3.0/mvtnorm_0.9-9999.tgz'
+Content type 'application/x-gzip' length 387345 bytes (378 Kb)
+opened URL
+==================================================
+downloaded 378 Kb
+
+trying URL 'http://cran.mtu.edu/bin/macosx/contrib/3.0/TH.data_1.0-3.tgz'
+Content type 'application/x-gzip' length 4179538 bytes (4.0 Mb)
+opened URL
+==================================================
+downloaded 4.0 Mb
+
+trying URL 'http://cran.mtu.edu/bin/macosx/contrib/3.0/sandwich_2.3-0.tgz'
+Content type 'application/x-gzip' length 495433 bytes (483 Kb)
+opened URL
+==================================================
+downloaded 483 Kb
+
+trying URL 'http://cran.mtu.edu/bin/macosx/contrib/3.0/multcomp_1.3-3.tgz'
+Content type 'application/x-gzip' length 612173 bytes (597 Kb)
+opened URL
+==================================================
+downloaded 597 Kb
+
+
+The downloaded binary packages are in
+	/var/folders/5k/qmvgv5p13gx7bqxwdklywr640000gn/T//RtmpPQwqmZ/downloaded_packages
+> library(multcomp)
+Loading required package: mvtnorm
+Loading required package: survival
+Loading required package: splines
+Loading required package: TH.data
+summar
+> 
+> summary(glht(d1,linfct=mcp(Type="Tukey")))
+
+	 Simultaneous Tests for General Linear Hypotheses
+
+Multiple Comparisons of Means: Tukey Contrasts
+
+
+Fit: aov(formula = logPrice ~ Type + MPG)
+
+Linear Hypotheses:
+                 Estimate Std. Error t value Pr(>|t|)   
+SUV - Car == 0   -0.02653    0.04159  -0.638  0.79253   
+Truck - Car == 0 -0.20129    0.06072  -3.315  0.00551 **
+Truck - SUV == 0 -0.17476    0.04585  -3.812  0.00134 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+(Adjusted p values reported -- single-step method)
+
+> d1
+Call:
+   aov(formula = logPrice ~ Type + MPG)
+
+Terms:
+                     Type       MPG Residuals
+Sum of Squares  0.2672417 0.3578038 0.2884913
+Deg. of Freedom         2         1        37
+
+Residual standard error: 0.08830098
+Estimated effects may be unbalanced
+> d
+           Car Price  Brand  Type  MPG
+1        Yaris 14430 Toyota   Car 33.5
+2      Corolla 16800 Toyota   Car 32.5
+3        Camry 22425 Toyota   Car 30.0
+4       Avalon 31340 Toyota   Car 31.0
+5       Sienna 26920 Toyota   Car 25.0
+6       Tacoma 18125 Toyota Truck 23.0
+7       Tundra 26200 Toyota Truck 18.0
+8         RAV4 23550 Toyota   SUV 27.5
+9        Venza 27950 Toyota   SUV 23.0
+10  Highlander 29215 Toyota   SUV 22.5
+11   FJCruiser 27680 Toyota   SUV 18.0
+12     4Runner 32820 Toyota   SUV 19.5
+13     Sequoia 44095 Toyota   SUV 15.5
+14 LandCruiser 79605 Toyota   SUV 15.5
+15      Accord 21680  Honda   Car 31.5
+16 AccordCoupe 23625  Honda   Car 30.0
+17       Civic 18390  Honda   Car 34.5
+18  CivicCoupe 18190  Honda   Car 33.5
+19   Crosstour 27380  Honda   SUV 26.5
+20         CRV 22945  Honda   SUV 27.0
+21         CRZ 19995  Honda   Car 37.5
+22         Fit 15425  Honda   Car 30.0
+23     Odyssey 28825  Honda   SUV 23.5
+24       Pilot 29670  Honda   SUV 21.5
+25   Ridgeline 29575  Honda Truck 18.0
+26        Juke 19170 Nissan   SUV 29.5
+27       Rogue 22790 Nissan   SUV 29.5
+28 RogueSelect 20040 Nissan   SUV 30.5
+29      Murano 28530 Nissan   SUV 21.0
+30 MuranoCross 41995 Nissan   SUV 19.5
+31      Xterra 23390 Nissan   SUV 19.0
+32  Pathfinder 29110 Nissan   SUV 23.0
+33      Armada 37590 Nissan   SUV 16.0
+34    Frontier 17990 Nissan Truck 21.0
+35       Titan 29360 Nissan Truck 15.5
+36   VersaNote 13990 Nissan   Car 35.5
+37       Versa 11900 Nissan   Car 35.5
+38        Cube 16900 Nissan   Car 29.0
+39      Altima 22170 Nissan   Car 32.5
+40 AltimaCoupe 25230 Nissan   Car 27.5
+41      Maxima 31290 Nissan   Car 22.5
+> plot(d1)
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+> d1.diag<-ls.diag(lsfit(model.matrix(d1)[,2:6],logPrice))
+Error in model.matrix(d1)[, 2:6] : subscript out of bounds
+> d1.diag=ls.diag(lsfit(model.matrix(d1)[,2:4],logPrice))
+> model.matrix(d1)
+   (Intercept) TypeSUV TypeTruck  MPG
+1            1       0         0 33.5
+2            1       0         0 32.5
+3            1       0         0 30.0
+4            1       0         0 31.0
+5            1       0         0 25.0
+6            1       0         1 23.0
+7            1       0         1 18.0
+8            1       1         0 27.5
+9            1       1         0 23.0
+10           1       1         0 22.5
+11           1       1         0 18.0
+12           1       1         0 19.5
+13           1       1         0 15.5
+14           1       1         0 15.5
+15           1       0         0 31.5
+16           1       0         0 30.0
+17           1       0         0 34.5
+18           1       0         0 33.5
+19           1       1         0 26.5
+20           1       1         0 27.0
+21           1       0         0 37.5
+22           1       0         0 30.0
+23           1       1         0 23.5
+24           1       1         0 21.5
+25           1       0         1 18.0
+26           1       1         0 29.5
+27           1       1         0 29.5
+28           1       1         0 30.5
+29           1       1         0 21.0
+30           1       1         0 19.5
+31           1       1         0 19.0
+32           1       1         0 23.0
+33           1       1         0 16.0
+34           1       0         1 21.0
+35           1       0         1 15.5
+36           1       0         0 35.5
+37           1       0         0 35.5
+38           1       0         0 29.0
+39           1       0         0 32.5
+40           1       0         0 27.5
+41           1       0         0 22.5
+attr(,"assign")
+[1] 0 1 1 2
+attr(,"contrasts")
+attr(,"contrasts")$Type
+[1] "contr.treatment"
+
+> d1.diag=ls.diag(lsfit(model.matrix(d1)[,2:3],logPrice))
+> > d1.diag=ls.diag(lsfit(model.matrix(d1)[,2:5],logPrice))
+Error: unexpected '>' in ">"
+> d1.diag=ls.diag(lsfit(model.matrix(d1)[,2:5],logPrice))
+Error in model.matrix(d1)[, 2:5] : subscript out of bounds
+> d1.diag=ls.diag(lsfit(model.matrix(d1)[,2:4],logPrice))
+> d1.diag
+$std.dev
+[1] 0.08830098
+
+$hat
+ [1] 0.06604923 0.06103027 0.06113660 0.05892486 0.11557955 0.22199580 0.20174983 0.08840553
+ [9] 0.05295606 0.05263258 0.08225944 0.06587618 0.12402626 0.12402626 0.05890359 0.06113660
+[17] 0.07396047 0.06604923 0.07546638 0.08157442 0.11504788 0.06113660 0.05400261 0.05415483
+[25] 0.20174983 0.12296068 0.12296068 0.14457668 0.05600057 0.06587618 0.07061420 0.05295606
+[33] 0.11422676 0.20522057 0.21874198 0.08476399 0.08476399 0.06624063 0.06103027 0.07931970
+[41] 0.16991616
+
+$std.res
+ [1] -1.03735946 -0.52857918  0.27265127  2.23490222 -0.13325285 -0.34751287  0.24363735
+ [8]  0.16899718 -0.15970589 -0.06833637 -1.55660732 -0.27632156  0.16552834  3.26982084
+[15]  0.49935779  0.53725595  0.46531849  0.14112874  0.67067800 -0.09960325  1.73500574
+[22] -1.62670346  0.12851559 -0.25511864  0.91066583 -0.35826802  0.55016583  0.15178510
+[29] -0.58627369  0.97813453 -2.13875310  0.04581207 -0.53262193 -0.96299262  0.15129014
+[36] -0.66856317 -1.50040839 -1.43291200  0.87921314  0.20825393 -0.03235511
+
+$stud.res
+ [1] -1.03845785 -0.52336707  0.26921214  2.37027875 -0.13147135 -0.34334537  0.24051541
+ [8]  0.16676216 -0.15758724 -0.06741083 -1.58831570 -0.27284357  0.16333664  3.82497895
+[15]  0.49423172  0.53202528  0.46033624  0.13924602  0.66561100 -0.09826122  1.78557521
+[22] -1.66522155  0.12679530 -0.25186910  0.90851459 -0.35400797  0.54491367  0.14976653
+[29] -0.58100175  0.97754746 -2.25354891  0.04519003 -0.52740077 -0.96202246  0.14927786
+[36] -0.66348643 -1.52718267 -1.45434450  0.87645441  0.20554091 -0.03191534
+
+$cooks
+ [1] 1.902577e-02 4.539979e-03 1.210191e-03 7.818642e-02 5.801165e-04 8.614789e-03 3.750610e-03
+ [8] 6.924313e-04 3.565557e-04 6.486046e-05 5.429551e-02 1.346150e-03 9.698561e-04 3.784517e-01
+[15] 3.901857e-03 4.698956e-03 4.323254e-03 3.521395e-04 9.179076e-03 2.202912e-04 9.783645e-02
+[22] 4.307802e-02 2.357091e-04 9.316259e-04 5.240012e-02 4.498869e-03 1.060900e-02 9.734540e-04
+[29] 5.097550e-03 1.686791e-02 8.688750e-02 2.933900e-05 9.145835e-03 5.986324e-02 1.602134e-03
+[36] 1.034911e-02 5.212394e-02 3.641401e-02 1.256094e-02 9.341113e-04 5.357208e-05
+
+$dfits
+ [1] -0.27615999 -0.13342993  0.06869800  0.59311178 -0.04752720 -0.18340561  0.12091495
+ [8]  0.05193216 -0.03726437 -0.01588904 -0.47552103 -0.07245623  0.06146033  1.43926357
+[15]  0.12364725  0.13576309  0.13009489  0.03703008  0.19016732 -0.02928446  0.64380977
+[22] -0.42493399  0.03029462 -0.06026754  0.45673993 -0.13255211  0.20403342  0.06157060
+[29] -0.14151021  0.25959711 -0.62117646  0.01068601 -0.18939277 -0.48884632  0.07898856
+[36] -0.20191621 -0.46476149 -0.38735756  0.22344785  0.06033015 -0.01443962
+
+$correlation
+          Intercept    TypeSUV  TypeTruck        MPG
+Intercept  1.000000 -0.7941450 -0.7296800 -0.9798210
+TypeSUV   -0.794145  1.0000000  0.6562166  0.7054659
+TypeTruck -0.729680  0.6562166  1.0000000  0.6727556
+MPG       -0.979821  0.7054659  0.6727556  1.0000000
+
+$std.err
+                 [,1]
+Intercept 0.107146602
+TypeSUV   0.041593571
+TypeTruck 0.060717666
+MPG       0.003357924
+
+$cov.scaled
+              Intercept       TypeSUV    TypeTruck           MPG
+Intercept  0.0114803942 -3.539195e-03 -0.004747073 -3.525299e-04
+TypeSUV   -0.0035391945  1.730025e-03  0.001657252  9.853103e-05
+TypeTruck -0.0047470733  1.657252e-03  0.003686635  1.371650e-04
+MPG       -0.0003525299  9.853103e-05  0.000137165  1.127565e-05
+
+$cov.unscaled
+            Intercept     TypeSUV   TypeTruck          MPG
+Intercept  1.47239976 -0.45391378 -0.60882835 -0.045213162
+TypeSUV   -0.45391378  0.22188163  0.21254820  0.012636941
+TypeTruck -0.60882835  0.21254820  0.47282352  0.017591876
+MPG       -0.04521316  0.01263694  0.01759188  0.001446141
+
+> sapply(split(d1.diag$std.res,Type),summary)
+              Car       SUV      Truck
+Min.    -1.627000 -2.139000 -0.9630000
+1st Qu. -0.668600 -0.317300 -0.3475000
+Median   0.141100 -0.068340  0.1513000
+Mean     0.000762  0.005149 -0.0009824
+3rd Qu.  0.499400  0.167300  0.2436000
+Max.     2.235000  3.270000  0.9107000
+> Type=factor(Type)
+> boxplot(split(d1.diag$std.res,Type))
+> plot(logPrice,d1.diag$std.res,ylab="Standardized Residuals")
+> absres=abs(d1.diag$std.res)
+> Anova(aov(absres~Type),type=3)
+Anova Table (Type III tests)
+
+Response: absres
+             Sum Sq Df F value    Pr(>F)    
+(Intercept) 11.4197  1 21.4161 4.216e-05 ***
+Type         0.4677  2  0.4386    0.6482    
+Residuals   20.2627 38                      
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> ls()
+[1] "absres"   "d"        "d1"       "d1.diag"  "logPrice" "Type"    
+> coef(d1)[1]
+(Intercept) 
+    5.00982 
+> coef(d1)[2]
+    TypeSUV 
+-0.02652942 
+> coef(d1)[3]
+ TypeTruck 
+-0.2012907 
+> coef(d1)[4]
+        MPG 
+-0.02274719 
+> model.table(d1,ceterms="Type")$tables$Type+coef(d1)[1]+coef(d1)[4]*mean(MPG)
+Error: could not find function "model.table"
+> model.tables(d1,ceterms="Type")$tables$Type+coef(d1)[1]+coef(d1)[4]*mean(MPG)
+Type
+     Car      SUV    Truck 
+4.335478 4.507722 4.410900 
+Warning message:
+In replications(paste("~", xx), data = mf) : non-factors ignored: MPG
+> model.tables(d1,cterms="Type")
+Tables of effects
+
+ Type 
+         Car      SUV   Truck
+    -0.08902  0.08323 -0.0136
+rep 17.00000 19.00000  5.0000
+> d1.rg<-ref.grid(d1)
+Error: could not find function "ref.grid"
+> install.packages(lsmeans)
+Error in install.packages(lsmeans) : object 'lsmeans' not found
+> install.packages("lsmeans")
+Installing package into ‘/Users/janetyee2008/Library/R/3.0/library’
+(as ‘lib’ is unspecified)
+also installing the dependencies ‘Rcpp’, ‘plyr’
+
+trying URL 'http://cran.mtu.edu/bin/macosx/contrib/3.0/Rcpp_0.11.1.tgz'
+Content type 'application/x-gzip' length 2503690 bytes (2.4 Mb)
+opened URL
+==================================================
+downloaded 2.4 Mb
+
+trying URL 'http://cran.mtu.edu/bin/macosx/contrib/3.0/plyr_1.8.1.tgz'
+Content type 'application/x-gzip' length 836048 bytes (816 Kb)
+opened URL
+==================================================
+downloaded 816 Kb
+
+trying URL 'http://cran.mtu.edu/bin/macosx/contrib/3.0/lsmeans_2.00-5.tgz'
+Content type 'application/x-gzip' length 611652 bytes (597 Kb)
+opened URL
+==================================================
+downloaded 597 Kb
+
+
+The downloaded binary packages are in
+	/var/folders/5k/qmvgv5p13gx7bqxwdklywr640000gn/T//RtmpPQwqmZ/downloaded_packages
+> d1.rg<-ref.grid(d1)
+Error: could not find function "ref.grid"
+> load(lsmeans)
+Error in load(lsmeans) : object 'lsmeans' not found
+> 
+> library(lsmeans)
+> d1.rg<-ref.grid(d1)
+> d1.lsm<-lsmeans(d1.rg,"Type")
+> d1.lsm
+ Type    lsmean         SE df lower.CL upper.CL
+ Car   4.424496 0.02835215 37 4.367049 4.481943
+ SUV   4.397967 0.02293957 37 4.351487 4.444447
+ Truck 4.223206 0.04533553 37 4.131347 4.315064
+
+Confidence level used: 0.95 
+> plot(MPG,d1.diag$std.res,ylab="Standardized Residuals")
+> abres-abs(d1.diag$std.res)
+Error: object 'abres' not found
+> absres=abs(d1.diag$std.res)
+> Anova(aov(absres~Type),type=3)
+Anova Table (Type III tests)
+
+Response: absres
+             Sum Sq Df F value    Pr(>F)    
+(Intercept) 11.4197  1 21.4161 4.216e-05 ***
+Type         0.4677  2  0.4386    0.6482    
+Residuals   20.2627 38                      
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> n=length(logPrice)
+> remove(n)
+> save.image
+function (file = ".RData", version = NULL, ascii = FALSE, compress = !ascii, 
+    safe = TRUE) 
+{
+    if (!is.character(file) || file == "") 
+        stop("'file' must be non-empty string")
+    opts <- getOption("save.image.defaults")
+    if (is.null(opts)) 
+        opts <- getOption("save.defaults")
+    if (missing(safe) && !is.null(opts$safe)) 
+        safe <- opts$safe
+    if (missing(ascii) && !is.null(opts$ascii)) 
+        ascii <- opts$ascii
+    if (missing(compress) && !is.null(opts$compress)) 
+        compress <- opts$compress
+    if (missing(version)) 
+        version <- opts$version
+    if (safe) {
+        outfile <- paste0(file, "Tmp")
+        i <- 0
+        while (file.exists(outfile)) {
+            i <- i + 1
+            outfile <- paste0(file, "Tmp", i)
+        }
+    }
+    else outfile <- file
+    on.exit(file.remove(outfile))
+    save(list = ls(envir = .GlobalEnv, all.names = TRUE), file = outfile, 
+        version = version, ascii = ascii, compress = compress, 
+        envir = .GlobalEnv, precheck = FALSE)
+    if (safe) 
+        if (!file.rename(outfile, file)) {
+            on.exit()
+            stop(gettextf("image could not be renamed and is left in %s", 
+                outfile), domain = NA)
+        }
+    on.exit()
+}
+<bytecode: 0x111f82868>
+<environment: namespace:base>
+> savehistory()
+Error in .External2(C_savehistory, file) : 
+  'savehistory' is not currently implemented
+> save(file="~Documents/UB Regression 3/HW5")
+Error in gzfile(file, "wb") : cannot open the connection
+In addition: Warning messages:
+1: In save(file = "~Documents/UB Regression 3/HW5") :
+  nothing specified to be save()d
+2: In gzfile(file, "wb") :
+  cannot open compressed file '~Documents/UB Regression 3/HW5', probable reason 'No such file or directory'
+> save(file=sav)
+> 
+> 
+> save.image()
+> ls()
+[1] "absres"   "d"        "d1"       "d1.diag"  "d1.lsm"   "d1.rg"    "logPrice" "Type"    
+> save()
+Error in save() : 'file' must be specified
+In addition: Warning message:
+In save() : nothing specified to be save()d
+> 

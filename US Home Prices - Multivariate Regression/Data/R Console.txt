@@ -1,0 +1,280 @@
+
+R version 3.0.2 (2013-09-25) -- "Frisbee Sailing"
+Copyright (C) 2013 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin10.8.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.62 (6558) x86_64-apple-darwin10.8.0]
+
+[Workspace restored from /Users/janetyee2008/Documents/UB Regression 3/.RData]
+[History restored from /Users/janetyee2008/Documents/UB Regression 3/.Rapp.history]
+
+> setwd("~/HW4")
+Error in setwd("~/HW4") : cannot change working directory
+> setwd("~/Documents/UB Regression 3/HW4")
+> d=read.table(open.choose())
+Error in read.table(open.choose()) : 
+  could not find function "open.choose"
+> d=read.table(file.choose())
+> names(d)=c("date","sales","HAI","cons","price","unrate","mort")
+> plot(d)
+> plot(sales~HAI)
+Error in eval(expr, envir, enclos) : object 'sales' not found
+> plot(HAI,sales)
+Error in plot(HAI, sales) : object 'HAI' not found
+> attach(d)
+> plot(HAI,sales)
+> plot(cons,sales)
+> plot(cons,sales,xlab="Construction Spending",ylab="")
+> plot(cons,sales,xlab="Construction Spending",ylab="Home Sales")
+> plot(HAI, sales, xlab="HAI",ylab="Home Sales")
+> plot(cons,sales,xlab="Construction Spending",ylab"Home Sales")
+Error: unexpected string constant in "plot(cons,sales,xlab="Construction Spending",ylab"Home Sales""
+> plot(cons, sales, xlab="Construction Spending",ylab="Home Sales")
+> 
+> plot(price,sales,xlab="Housing Price",ylab="Home Sales")
+> plot(unrate,sales,xlab="Unemployment Rate",ylab="Home Sales")
+> plot(mort,sales,xlab="Mortgage Rate",ylab="Home Sales")
+> plot(HAI, log(sales),xlab="HAI",ylab="log Home Sales")
+> plot(log(cons), log(sales),xlab="log Construction Spending",ylab="log Home Sales")
+> plot(log(price),log(sales),xlab="log Sales Price",ylab="log Home Sales")
+> plot(unrate,log(sales),xlab="Unemployment Rate",ylab="log Home Sales")
+> plot(mort,log(sales),xlab="Mortgage Rate",ylab="log Home Sales")
+> d1.lm<-lm(log(sales)~HAI + log(cons)+log(price)+unrate+mort)
+> summary(d1.lm)
+
+Call:
+lm(formula = log(sales) ~ HAI + log(cons) + log(price) + unrate + 
+    mort)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.35868 -0.08465  0.00916  0.09850  0.28778 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  7.570272   1.969200   3.844 0.000169 ***
+HAI          0.005719   0.001450   3.944 0.000116 ***
+log(cons)    1.192932   0.085385  13.971  < 2e-16 ***
+log(price)  -0.689319   0.110640  -6.230 3.33e-09 ***
+unrate       0.062302   0.011472   5.431 1.84e-07 ***
+mort         0.054664   0.031462   1.737 0.084056 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.1303 on 176 degrees of freedom
+Multiple R-squared:  0.7571,	Adjusted R-squared:  0.7502 
+F-statistic: 109.7 on 5 and 176 DF,  p-value: < 2.2e-16
+
+> library(car)
+> vif(d1.lm)
+       HAI  log(cons) log(price)     unrate       mort 
+ 19.361028   8.963405   3.121741   5.051954  16.469864 
+> cor(cbind(log(sales),HAI,log(cons),log(price),unrate,mort)
++ 
++ cor
+Error: unexpected symbol in:
+"
+cor"
+> cor(cbind(log(sales),HAI,log(cons),log(price),unrate,mort))
+                          HAI                            unrate       mort
+        1.00000000 -0.5685299  0.7868646 -0.06151536 -0.4321349  0.2734973
+HAI    -0.56852989  1.0000000 -0.8055555  0.31119256  0.8358359 -0.8139564
+        0.78686459 -0.8055555  1.0000000  0.10070178 -0.6828391  0.3935340
+       -0.06151536  0.3111926  0.1007018  1.00000000  0.3805062 -0.6956739
+unrate -0.43213493  0.8358359 -0.6828391  0.38050623  1.0000000 -0.7932240
+mort    0.27349728 -0.8139564  0.3935340 -0.69567394 -0.7932240  1.0000000
+> cor(cbind(log(sales),HAI,log(cons),log(price),unrate,mort))
+                          HAI                            unrate       mort
+        1.00000000 -0.5685299  0.7868646 -0.06151536 -0.4321349  0.2734973
+HAI    -0.56852989  1.0000000 -0.8055555  0.31119256  0.8358359 -0.8139564
+        0.78686459 -0.8055555  1.0000000  0.10070178 -0.6828391  0.3935340
+       -0.06151536  0.3111926  0.1007018  1.00000000  0.3805062 -0.6956739
+unrate -0.43213493  0.8358359 -0.6828391  0.38050623  1.0000000 -0.7932240
+mort    0.27349728 -0.8139564  0.3935340 -0.69567394 -0.7932240  1.0000000
+> logsales=log(sales)
+> logcons=log(cons)
+> logprice=log(price)
+> cor(cbind(logsales,HAI,logcons,logprice,unrate,mort))
+            logsales        HAI    logcons    logprice     unrate       mort
+logsales  1.00000000 -0.5685299  0.7868646 -0.06151536 -0.4321349  0.2734973
+HAI      -0.56852989  1.0000000 -0.8055555  0.31119256  0.8358359 -0.8139564
+logcons   0.78686459 -0.8055555  1.0000000  0.10070178 -0.6828391  0.3935340
+logprice -0.06151536  0.3111926  0.1007018  1.00000000  0.3805062 -0.6956739
+unrate   -0.43213493  0.8358359 -0.6828391  0.38050623  1.0000000 -0.7932240
+mort      0.27349728 -0.8139564  0.3935340 -0.69567394 -0.7932240  1.0000000
+> library(leaps)
+Error in library(leaps) : there is no package called ‘leaps’
+Error in if (res > 0L) { : argument is of length zero
+In addition: Warning messages:
+1: '.find.package' is deprecated.
+Use 'find.package' instead.
+See help("Deprecated") 
+2: In open.connection(con, "r") : unable to resolve 'cran.r-project.org'
+--- Please select a CRAN mirror for use in this session ---
+Error in if (res > 0L) { : argument is of length zero
+In addition: Warning message:
+In open.connection(con, "r") : unable to resolve 'cran.r-project.org'
+Error in if (res > 0L) { : argument is of length zero
+In addition: Warning message:
+In open.connection(con, "r") : unable to resolve 'cran.r-project.org'
+--- Please select a CRAN mirror for use in this session ---
+Error in if (res > 0L) { : argument is of length zero
+> install.packages("leaps")
+Installing package into ‘/Users/janetyee2008/Library/R/3.0/library’
+(as ‘lib’ is unspecified)
+--- Please select a CRAN mirror for use in this session ---
+trying URL 'http://cran.cnr.Berkeley.edu/bin/macosx/contrib/3.0/leaps_2.9.tgz'
+Content type 'application/x-gzip' length 66602 bytes (65 Kb)
+opened URL
+==================================================
+downloaded 65 Kb
+
+
+The downloaded binary packages are in
+	/var/folders/5k/qmvgv5p13gx7bqxwdklywr640000gn/T//Rtmpyv4hjf/downloaded_packages
+> library(leaps)
+2014-04-15 14:27:09.365 R[6806:707] -deltaZ is deprecated for NSEventTypeMagnify.  Please use -magnification.
+> leaps(cbind(HAI,logcons,logprice,unrate,mort),logsales,nbest=2)
+$which
+      1     2     3     4     5
+1 FALSE  TRUE FALSE FALSE FALSE
+1  TRUE FALSE FALSE FALSE FALSE
+2 FALSE  TRUE FALSE  TRUE FALSE
+2 FALSE  TRUE  TRUE FALSE FALSE
+3 FALSE  TRUE  TRUE  TRUE FALSE
+3  TRUE  TRUE  TRUE FALSE FALSE
+4  TRUE  TRUE  TRUE  TRUE FALSE
+4 FALSE  TRUE  TRUE  TRUE  TRUE
+5  TRUE  TRUE  TRUE  TRUE  TRUE
+
+$label
+[1] "(Intercept)" "1"           "2"           "3"           "4"          
+[6] "5"          
+
+$size
+[1] 2 2 3 3 4 4 5 5 6
+
+$Cp
+[1]  97.912828 312.307069  84.900056  85.412663  24.637998  33.076202   7.018746
+[8]  19.555118   6.000000
+
+> save()
+> save(file="sales.rda")
+Warning message:
+In save(file = "sales.rda") : nothing specified to be save()d
+> load("/Users/janetyee2008/Documents/UB Regression 3/HW4/sales.rda")
+> library(leaps)
+> attach(d)
+The following objects are masked from d (position 5):
+
+    cons, date, HAI, mort, price, sales, unrate
+> leaps<-regsubsets(logsales~HAI+logcons+logprice+unrate+mort,data=d,nbest=10)
+> summary(leaps)
+Subset selection object
+Call: regsubsets.formula(logsales ~ HAI + logcons + logprice + unrate + 
+    mort, data = d, nbest = 10)
+5 Variables  (and intercept)
+         Forced in Forced out
+HAI          FALSE      FALSE
+logcons      FALSE      FALSE
+logprice     FALSE      FALSE
+unrate       FALSE      FALSE
+mort         FALSE      FALSE
+10 subsets of each size up to 5
+Selection Algorithm: exhaustive
+          HAI logcons logprice unrate mort
+1  ( 1 )  " " "*"     " "      " "    " " 
+1  ( 2 )  "*" " "     " "      " "    " " 
+1  ( 3 )  " " " "     " "      "*"    " " 
+1  ( 4 )  " " " "     " "      " "    "*" 
+1  ( 5 )  " " " "     "*"      " "    " " 
+2  ( 1 )  " " "*"     " "      "*"    " " 
+2  ( 2 )  " " "*"     "*"      " "    " " 
+2  ( 3 )  "*" "*"     " "      " "    " " 
+2  ( 4 )  " " "*"     " "      " "    "*" 
+2  ( 5 )  "*" " "     " "      " "    "*" 
+2  ( 6 )  "*" " "     "*"      " "    " " 
+2  ( 7 )  "*" " "     " "      "*"    " " 
+2  ( 8 )  " " " "     " "      "*"    "*" 
+2  ( 9 )  " " " "     "*"      "*"    " " 
+2  ( 10 ) " " " "     "*"      " "    "*" 
+3  ( 1 )  " " "*"     "*"      "*"    " " 
+3  ( 2 )  "*" "*"     "*"      " "    " " 
+3  ( 3 )  " " "*"     "*"      " "    "*" 
+3  ( 4 )  "*" "*"     " "      " "    "*" 
+3  ( 5 )  " " "*"     " "      "*"    "*" 
+3  ( 6 )  "*" "*"     " "      "*"    " " 
+3  ( 7 )  "*" " "     "*"      " "    "*" 
+3  ( 8 )  "*" " "     " "      "*"    "*" 
+3  ( 9 )  "*" " "     "*"      "*"    " " 
+3  ( 10 ) " " " "     "*"      "*"    "*" 
+4  ( 1 )  "*" "*"     "*"      "*"    " " 
+4  ( 2 )  " " "*"     "*"      "*"    "*" 
+4  ( 3 )  "*" "*"     "*"      " "    "*" 
+4  ( 4 )  "*" "*"     " "      "*"    "*" 
+4  ( 5 )  "*" " "     "*"      "*"    "*" 
+5  ( 1 )  "*" "*"     "*"      "*"    "*" 
+> plot(leaps,scale="r2")
+> leaps<-regsubsets(logsales~HAI+logcons+logprice+unrate+mort,data=d,nbest=2)
+> summary(leaps)
+Subset selection object
+Call: regsubsets.formula(logsales ~ HAI + logcons + logprice + unrate + 
+    mort, data = d, nbest = 2)
+5 Variables  (and intercept)
+         Forced in Forced out
+HAI          FALSE      FALSE
+logcons      FALSE      FALSE
+logprice     FALSE      FALSE
+unrate       FALSE      FALSE
+mort         FALSE      FALSE
+2 subsets of each size up to 5
+Selection Algorithm: exhaustive
+         HAI logcons logprice unrate mort
+1  ( 1 ) " " "*"     " "      " "    " " 
+1  ( 2 ) "*" " "     " "      " "    " " 
+2  ( 1 ) " " "*"     " "      "*"    " " 
+2  ( 2 ) " " "*"     "*"      " "    " " 
+3  ( 1 ) " " "*"     "*"      "*"    " " 
+3  ( 2 ) "*" "*"     "*"      " "    " " 
+4  ( 1 ) "*" "*"     "*"      "*"    " " 
+4  ( 2 ) " " "*"     "*"      "*"    "*" 
+5  ( 1 ) "*" "*"     "*"      "*"    "*" 
+> leaps(cbind(HAI,logcons,logprice,unrate,mort),logsales,nbest=2)
+$which
+      1     2     3     4     5
+1 FALSE  TRUE FALSE FALSE FALSE
+1  TRUE FALSE FALSE FALSE FALSE
+2 FALSE  TRUE FALSE  TRUE FALSE
+2 FALSE  TRUE  TRUE FALSE FALSE
+3 FALSE  TRUE  TRUE  TRUE FALSE
+3  TRUE  TRUE  TRUE FALSE FALSE
+4  TRUE  TRUE  TRUE  TRUE FALSE
+4 FALSE  TRUE  TRUE  TRUE  TRUE
+5  TRUE  TRUE  TRUE  TRUE  TRUE
+
+$label
+[1] "(Intercept)" "1"           "2"           "3"           "4"          
+[6] "5"          
+
+$size
+[1] 2 2 3 3 4 4 5 5 6
+
+$Cp
+[1]  97.912828 312.307069  84.900056  85.412663  24.637998  33.076202   7.018746
+[8]  19.555118   6.000000
+
+> leaps(cbind(Hair))

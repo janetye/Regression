@@ -1,0 +1,132 @@
+rownames
+plot(apt1)
+apta=read.table(file.choose())
+apt2=read.table(file.choose())
+names(apt2)=c("add","rent","bed","bath","crime","sqft","door")
+summary(apt2)
+plot(bed,rent,xlab="Number of Bedrooms",ylab="Rent")
+plot(bath,rent,xlab="Number of Bathrooms",ylab="Rent")
+plot(crime,rent,xlab="Crime Rate",ylab="Rent")
+plot(sqft,rent,xlab="Square Feet",ylab="Rent")
+text(sqft,rent,cex=0.7,pos=3)
+apt2
+plot(rent~bed+bath+crime+sqft+door)
+aptb<-lm(rent~bed+bath+crime+sqft+door)
+summary(aptb)
+save(aptb,file="apt.rda")
+ls()
+load("/Users/janetyee2008/Documents/UB Regression 3/HW3/apt.rda")
+load("/Users/janetyee2008/Documents/UB Regression 3/HW3/apt.RData")
+plot(aptb)
+library(car)
+vif(aptb)
+aptb
+apt2
+apt2.stdres=rstandard(aptb)
+rename(apt1,apta)
+apt.lm
+apt.stdres=rstandard(aptb)
+plot(rent,apt.stdres,xlab="Fitted Values",ylab="Standardized Residuals")
+rent
+names(apt2)=c("add","rent","bed","bath","crime","sqft","door")
+rent
+rent=apt2$rent
+plot(rent,apt.stdres,xlab="Fitted Values",ylab="Standardized Residuals")
+rent
+apt.stdres=rstandard(apt2)
+apt.stdres=rstandard(aptb)
+aptb=lm(rent~bed+bath+crime+sqft+door,data=apt2)
+summary(aptb)
+vif(aptb)
+apt
+apt.stdres=rstandard(aptb)
+plot(rent,apt.stdres,xlab="Fitted Values",ylab="Standardized Residuals")
+text(rent,apt.stdres,labels=apt$add,cex=0.7,pos=3)
+plot(aptb)
+aptb
+apt2
+aptc=lm(rent~bed+bath+sqft+door,data=apt)
+summary(aptc)
+aptd=lm(rent~bed+bath+sqft+door,data=apt2)
+summary(aptd)
+remove(aptd)
+plot(aptd)
+plot(aptc)
+plot(aptd)
+aptd=lm(rent~bed+bath+sqft+door,data=apt2)
+plot(aptd)
+apt3=read.table(file.choose())
+names(apt3)<-c("add","rent","bed","bath","sqft","door")
+summary(apt3)
+attach(apt3)
+predict(aptd,newdata=apt3)
+pred=>predict(aptd,newdata=apt3)
+pred=predict(aptd,newdata=apt3)
+pred-rent
+rent
+rent2=aptd$rent
+res=pred-rent2
+plot(res)
+plot(1:50,res)
+plot(res)
+res
+rent2
+rent2=aptd$rent
+aptd
+apt3
+rent2=apt3$rent
+rent2
+res=rent2-pred
+res
+plot(res)
+rent2
+setwd("~/HW4")
+setwd("~/Documents/UB Regression 3/HW4")
+d=read.table(open.choose())
+d=read.table(file.choose())
+names(d)=c("date","sales","HAI","cons","price","unrate","mort")
+plot(d)
+plot(sales~HAI)
+plot(HAI,sales)
+attach(d)
+plot(HAI,sales)
+plot(cons,sales)
+plot(cons,sales,xlab="Construction Spending",ylab="")
+plot(cons,sales,xlab="Construction Spending",ylab="Home Sales")
+plot(HAI, sales, xlab="HAI",ylab="Home Sales")
+plot(cons,sales,xlab="Construction Spending",ylab"Home Sales")
+plot(cons, sales, xlab="Construction Spending",ylab="Home Sales")
+plot(price,sales,xlab="Housing Price",ylab="Home Sales")
+plot(unrate,sales,xlab="Unemployment Rate",ylab="Home Sales")
+plot(mort,sales,xlab="Mortgage Rate",ylab="Home Sales")
+plot(HAI, log(sales),xlab="HAI",ylab="log Home Sales")
+plot(log(cons), log(sales),xlab="log Construction Spending",ylab="log Home Sales")
+plot(log(price),log(sales),xlab="log Sales Price",ylab="log Home Sales")
+plot(unrate,log(sales),xlab="Unemployment Rate",ylab="log Home Sales")
+plot(mort,log(sales),xlab="Mortgage Rate",ylab="log Home Sales")
+d1.lm<-lm(log(sales)~HAI + log(cons)+log(price)+unrate+mort)
+summary(d1.lm)
+library(car)
+vif(d1.lm)
+cor(cbind(log(sales),HAI,log(cons),log(price),unrate,mort)
+cor
+cor(cbind(log(sales),HAI,log(cons),log(price),unrate,mort))
+cor(cbind(log(sales),HAI,log(cons),log(price),unrate,mort))
+logsales=log(sales)
+logcons=log(cons)
+logprice=log(price)
+cor(cbind(logsales,HAI,logcons,logprice,unrate,mort))
+library(leaps)
+install.packages("leaps")
+library(leaps)
+leaps(cbind(HAI,logcons,logprice,unrate,mort),logsales,nbest=2)
+save(file="sales.rda")
+load("/Users/janetyee2008/Documents/UB Regression 3/HW4/sales.rda")
+library(leaps)
+attach(d)
+leaps<-regsubsets(logsales~HAI+logcons+logprice+unrate+mort,data=d,nbest=10)
+summary(leaps)
+plot(leaps,scale="r2")
+leaps<-regsubsets(logsales~HAI+logcons+logprice+unrate+mort,data=d,nbest=2)
+summary(leaps)
+leaps(cbind(HAI,logcons,logprice,unrate,mort),logsales,nbest=2)
